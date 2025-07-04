@@ -1,10 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navigateToHome = () => {
+    navigate('/');
+    // Small timeout to ensure navigation completes before scrolling
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -12,13 +23,16 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div 
+            className="flex items-center cursor-pointer"
+            onClick={navigateToHome}
+          >
             <img 
               src="/lovable-uploads/5371994a-ea13-4b33-a94e-dd79a9caec70.png" 
               alt="Safe Lock Logo"
-                className="w-14.5 h-14 ml-2"
+              className="w-14.5 h-14 ml-2"
             />
-            <span className="text-xl font-bold text-slate-900 mr-2">Safe Lock</span>
+            <span className="text-xl font-bold text-slate-900 mr-2">Take Safe</span>
           </div>
 
           {/* Navigation */}
