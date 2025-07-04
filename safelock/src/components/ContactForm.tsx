@@ -54,173 +54,177 @@ const ContactForm = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-slate-50">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+    <section id="contact" className="py-24 px-6 bg-gray-50">
+      <div className="max-w-3xl mx-auto">
+        <header className="mb-16 text-center">
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
             מעוניינים בפרטים נוספים או בהצעה שלא תוכלו לסרב לה?
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-lg text-gray-600 max-w-xl mx-auto">
             השאירו פרטים בטופס ונחזור אליכם עם ייעוץ חינם והצעה משתלמת
           </p>
-        </div>
+        </header>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
-                  שם פרטי *
-                </label>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="הכניסו את שמכם"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="business"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
-                  שם העסק
-                </label>
-                <Input
-                  type="text"
-                  id="business"
-                  name="business"
-                  value={formData.business}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="שם החברה או העסק (אופציונלי)"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
-                  טלפון *
-                </label>
-                <Input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="050-1234567"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="city"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
-                  עיר *
-                </label>
-                <Input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="איזו עיר?"
-                />
-              </div>
-            </div>
-
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white shadow-lg rounded-3xl p-10 md:p-12 space-y-8"
+          noValidate
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <label
-                htmlFor="email"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                htmlFor="name"
+                className="block text-sm font-semibold text-gray-700 mb-2"
               >
-                אימייל
+                שם פרטי *
               </label>
               <Input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="example@email.com"
+                required
+                placeholder="הכניסו את שמכם"
+                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
               />
             </div>
 
             <div>
               <label
-                htmlFor="message"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                htmlFor="business"
+                className="block text-sm font-semibold text-gray-700 mb-2"
               >
-                פרטים נוספים
+                שם העסק
               </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
+              <Input
+                id="business"
+                name="business"
+                type="text"
+                value={formData.business}
                 onChange={handleChange}
-                rows={4}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="ספרו לנו על הצורך שלכם - איזה סוג כספת, לאיזה מטרה, וכל פרט שיעזור לנו להכין הצעה מדויקת"
+                placeholder="שם החברה או העסק (אופציונלי)"
+                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                טלפון *
+              </label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                placeholder="050-1234567"
+                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
               />
             </div>
 
-            <Button
-              type="submit"
-              className="w-full bg-blue-900 hover:bg-blue-800 text-white py-4 px-8 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              שלח בקשה
-            </Button>
-          </form>
-
-          <div className="mt-8 pt-8 border-t border-slate-200 text-center">
-            <p className="text-slate-600 mb-4">או צרו קשר ישירות:</p>
-            <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-8">
-              <a
-                href="tel:050-1234567"
-                className="text-blue-900 font-semibold hover:underline"
+            <div>
+              <label
+                htmlFor="city"
+                className="block text-sm font-semibold text-gray-700 mb-2"
               >
-                📞 050-1234567
-              </a>
-              <a
-                href="mailto:info@safelock.co.il"
-                className="text-blue-900 font-semibold hover:underline"
-              >
-                ✉️ info@safelock.co.il
-              </a>
-              <a
-                href="https://wa.me/972501234567"
-                className="text-blue-900 font-semibold hover:underline"
-              >
-                💬 WhatsApp
-              </a>
+                עיר *
+              </label>
+              <Input
+                id="city"
+                name="city"
+                type="text"
+                value={formData.city}
+                onChange={handleChange}
+                required
+                placeholder="איזו עיר?"
+                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+              />
             </div>
           </div>
-        </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              אימייל
+            </label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="example@email.com"
+              className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              פרטים נוספים
+            </label>
+            <Textarea
+              id="message"
+              name="message"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="ספרו לנו על הצורך שלכם - איזה סוג כספת, לאיזה מטרה, וכל פרט שיעזור לנו להכין הצעה מדויקת"
+              className="w-full rounded-xl border border-gray-300 px-5 py-4 resize-none focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className="w-full bg-blue-900 hover:bg-blue-800 text-white text-lg font-semibold py-4 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105"
+          >
+            שלח בקשה
+          </Button>
+        </form>
+
+        <footer className="mt-12 pt-10 border-t border-gray-200 text-center text-gray-600 space-y-4">
+          <p>או צרו קשר ישירות:</p>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-blue-900 font-semibold">
+            <a
+              href="tel:050-1234567"
+              className="hover:underline flex items-center gap-2"
+            >
+              📞 053-3570350
+            </a>
+            <a
+              href="mailto:office.safelock@gmail.com"
+              className="hover:underline flex items-center gap-2"
+            >
+              ✉️ office.safelock@gmail.com
+            </a>
+            <a
+              href="https://wa.me/972533570350"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline flex items-center gap-2"
+            >
+              💬 WhatsApp
+            </a>
+          </div>
+        </footer>
       </div>
     </section>
   );
