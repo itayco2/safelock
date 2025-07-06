@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import SafeTypes from "@/components/SafeTypes";
 import Services from "@/components/Services";
 import Benefits from "@/components/Benefits";
-import Articles from "@/components/Articles";
 import Clients from "@/components/Clients";
 import Trust from "@/components/Trust";
 import FAQ from "@/components/FAQ";
@@ -22,7 +21,6 @@ const Index = () => {
       <SafeTypes />
       <Services />
       <Benefits />
-      {/* <Articles /> */}
       <SafeContentBlock />
       <Clients />
       <Trust />

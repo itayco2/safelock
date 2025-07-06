@@ -6,20 +6,21 @@ const CinematicSafeIntro = () => {
   const [phase, setPhase] = useState("initial");
 
   useEffect(() => {
-    const introPlayed = localStorage.getItem("introPlayed");
+    const introPlayed = sessionStorage.getItem("introPlayed");
     if (introPlayed) {
-      // Skip intro if already played
+      // Skip intro if already played this browser session
       setShowIntro(false);
     } else {
       // Show intro and mark it played after finished
       setShowIntro(true);
+
       const timer1 = setTimeout(() => setPhase("spinning"), 430);
       const timer2 = setTimeout(() => setPhase("opening"), 1290);
       const timer3 = setTimeout(() => setPhase("zooming"), 1720);
       const timer4 = setTimeout(() => setPhase("complete"), 2150);
       const timer5 = setTimeout(() => {
         setShowIntro(false);
-        localStorage.setItem("introPlayed", "true");
+        sessionStorage.setItem("introPlayed", "true");
       }, 2480);
 
       return () => {
@@ -47,10 +48,8 @@ const CinematicSafeIntro = () => {
             className="absolute inset-0 bg-white"
             initial={{ scale: 0, opacity: 0 }}
             animate={{
-              scale:
-                phase === "zooming" || phase === "complete" ? 100 : 0,
-              opacity:
-                phase === "zooming" || phase === "complete" ? 1 : 0,
+              scale: phase === "zooming" || phase === "complete" ? 100 : 0,
+              opacity: phase === "zooming" || phase === "complete" ? 1 : 0,
             }}
             transition={{
               duration: 0.5,
@@ -78,8 +77,7 @@ const CinematicSafeIntro = () => {
               }}
               initial={{ scale: 0.8 }}
               animate={{
-                scale:
-                  phase === "zooming" || phase === "complete" ? 5 : 1,
+                scale: phase === "zooming" || phase === "complete" ? 5 : 1,
               }}
               transition={{
                 duration: phase === "zooming" ? 0.5 : 0.4,
@@ -124,8 +122,7 @@ const CinematicSafeIntro = () => {
                       <motion.div
                         className="absolute inset-12 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-full shadow-inner border-[4px] border-zinc-200"
                         animate={{
-                          rotate:
-                            phase === "spinning" ? -1440 : 0,
+                          rotate: phase === "spinning" ? -1440 : 0,
                         }}
                         transition={{
                           duration: 0.85,
