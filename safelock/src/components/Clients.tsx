@@ -6,15 +6,15 @@ const Clients = () => {
   const [itemsPerView, setItemsPerView] = useState(5);
 
   const clients = [
-    { name: "אוניברסיטת תל אביב", logoSrc: "assets/images/universitytlv.png" },
-    { name: "בנק הפועלים", logoSrc: "assets/images/bankhapoalim.jpg" },
-    { name: "משטרת ישראל", logoSrc: "assets/images/police.png" },
-    { name: "איכילוב", logoSrc: "assets/images/hospital.png" },
-    { name: "חברת החשמל", logoSrc: "assets/images/powercompany.png" },
-    { name: "עיריית תל אביב", logoSrc: "assets/images/tlvcityhall.png" },
-    { name: "מכבי שירותי בריאות", logoSrc: "assets/images/macabi.jpg" },
-    { name: "אלביט מערכות", logoSrc: "assets/images/elbit.png" },
-    { name: "קפה קפה", logoSrc: "assets/images/cafecafe.png" },
+    { name: "אוניברסיטת תל אביב", logoSrc: "/assets/images/universitytlv.png" },
+    { name: "בנק הפועלים", logoSrc: "/assets/images/bankhapoalim.jpg" },
+    { name: "משטרת ישראל", logoSrc: "/assets/images/police.png" },
+    { name: "איכילוב", logoSrc: "/assets/images/hospital.png" },
+    { name: "חברת החשמל", logoSrc: "/assets/images/powercompany.png" },
+    { name: "עיריית תל אביב", logoSrc: "/assets/images/tlvcityhall.png" },
+    { name: "מכבי שירותי בריאות", logoSrc: "/assets/images/macabi.jpg" },
+    { name: "אלביט מערכות", logoSrc: "/assets/images/elbit.png" },
+    { name: "קפה קפה", logoSrc: "/assets/images/cafecafe.png" },
   ];
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Clients = () => {
     }
   };
 
-  // Improved JSON-LD with publisher
+  // Updated JSON-LD with correct domain and logo path
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -65,10 +65,10 @@ const Clients = () => {
     "publisher": {
       "@type": "Organization",
       "name": "Take Safe",
-      "url": "https://www.yoursite.com",
+      "url": "https://www.takesafe.co.il",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.yoursite.com/logo.png"
+        "url": "https://www.takesafe.co.il/assets/images/logo.jpg"
       }
     },
     "itemListElement": clients.map((client, i) => ({

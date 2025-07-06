@@ -139,7 +139,7 @@ const PrivacyPolicy = () => {
               </p>
               <address className="bg-gray-50 p-6 rounded-lg not-italic text-gray-700">
                 <p className="mb-2"><strong>טלפון:</strong> <a href="tel:0533570350" className="text-blue-900 underline">053-3570350</a></p>
-                <p className="mb-2"><strong>אימייל:</strong> <a href="mailto:office.safelock@gmail.com" className="text-blue-900 underline">office.safelock@gmail.com</a></p>
+                <p className="mb-2"><strong>אימייל:</strong> <a href="mailto:Takesafe67@gmail.com" className="text-blue-900 underline">Takesafe67@gmail.com</a></p>
                 <p><strong>כתובת:</strong> בן-גוריון 190, גבעתיים, ישראל</p>
               </address>
             </section>

@@ -7,7 +7,7 @@ const Footer = () => {
     "@type": "Organization",
     name: "Take Safe",
     url: "https://www.takesafe.co.il",
-    logo: "https://www.takesafe.co.il/assets/images/logo.png",
+    logo: "https://www.takesafe.co.il/assets/images/logo.jpg",
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -105,11 +105,11 @@ const Footer = () => {
                   ✉️
                 </span>
                 <a
-                  href="mailto:office.safelock@gmail.com"
-                  aria-label="שלחו מייל ל-office.safelock@gmail.com"
+                  href="mailto:Takesafe67@gmail.com"
+                  aria-label="שלחו מייל ל-Takesafe67@gmail.com"
                   className="hover:text-white transition-colors font-medium"
                 >
-                  office.safelock@gmail.com
+                  Takesafe67@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">

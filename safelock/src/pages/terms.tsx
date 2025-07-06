@@ -64,10 +64,10 @@ const Terms = () => {
             <p>
               בכל שאלה ניתן ליצור קשר בדוא"ל
               <a
-                href="mailto:office.safelock@gmail.com"
+                href="mailto:Takesafe67@gmail.com"
                 className="text-blue-600 underline mx-1"
               >
-                office.safelock@gmail.com
+                Takesafe67@gmail.com
               </a>
               או בטלפון
               <a href="tel:0533570350" className="text-blue-600 underline mx-1">

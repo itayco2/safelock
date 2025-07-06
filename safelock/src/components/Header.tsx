@@ -23,7 +23,7 @@ const Header = () => {
     "@type": "Organization",
     name: "Take Safe",
     url: "https://www.takesafe.co.il",
-    logo: "https://www.takesafe.co.il/assets/images/logo.png",
+    logo: "https://www.takesafe.co.il/assets/images/logo.jpg",
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -68,7 +68,7 @@ const Header = () => {
             aria-label="מעבר לעמוד הבית"
           >
             <img
-              src="/lovable-uploads/5371994a-ea13-4b33-a94e-dd79a9caec70.png"
+              src="/assets/images/logo.jpg"
               alt="לוגו Take Safe"
               className="w-14.5 h-14 ml-2"
               loading="eager"

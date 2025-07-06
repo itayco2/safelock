@@ -65,7 +65,7 @@ const ContactForm = () => {
     "@type": "LocalBusiness",
     "name": "Take Safe",
     "url": "https://www.yoursite.com",
-    "email": "office.safelock@gmail.com",
+    "email": "Takesafe67@gmail.com",
     "telephone": "+972533570350",
     "address": {
       "@type": "PostalAddress",
@@ -235,10 +235,10 @@ const ContactForm = () => {
               📞 053-3570350
             </a>
             <a
-              href="mailto:office.safelock@gmail.com"
+              href="mailto:Takesafe67@gmail.com"
               className="hover:underline flex items-center gap-2"
             >
-              ✉️ office.safelock@gmail.com
+              ✉️ Takesafe67@gmail.com
             </a>
             <a
               href="https://wa.me/972533570350"

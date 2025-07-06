@@ -46,7 +46,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-10">
           <img
-            src="/lovable-uploads/5371994a-ea13-4b33-a94e-dd79a9caec70.png"
+            src="assets/images/logo.jpg"
             alt="לוגו Take Safe - כספות בטוחות לעסקים ובעלי נשק"
             className="w-40 h-40 mx-auto mb-6"
             loading="eager"
