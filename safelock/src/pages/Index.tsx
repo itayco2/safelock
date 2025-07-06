@@ -11,10 +11,12 @@ import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import SafeContentBlock from "@/components/SafeContentBlock";
+import CinematicSafeIntro from "@/components/CinematicSafeIntro";
 
 const Index = () => {
   return (
     <div className="min-h-screen" dir="rtl">
+      <CinematicSafeIntro />
       <Header />
       <Hero />
       <SafeTypes />
