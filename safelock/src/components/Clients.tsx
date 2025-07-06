@@ -64,11 +64,12 @@ const Clients = () => {
     }
   };
 
-  // Updated JSON-LD with correct domain and logo path
+  // Enhanced JSON-LD with more details
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "לקוחות Take Safe",
+    "name": "לקוחות Take Safe - כספות לעסקים ומוסדות",
+    "description": "לקוחות Take Safe כוללים מוסדות ציבוריים גדולים, בנקים, בתי חולים, אוניברסיטאות ועסקים מובילים בישראל",
     "publisher": {
       "@type": "Organization",
       "name": "Take Safe",
@@ -76,23 +77,29 @@ const Clients = () => {
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.takesafe.co.il/assets/images/logo.jpg"
-      }
+      },
+      "telephone": "+972-53-3570350",
+      "email": "Takesafe67@gmail.com"
     },
     "itemListElement": clients.map((client, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "name": client.name
+      "name": client.name,
+      "description": `${client.name} - לקוח מרוצה של Take Safe לשירותי כספות ואבטחה`
     })),
   };
 
   return (
     <>
       <Helmet>
-        <title>לקוחות Take Safe - אבטחת כספות לעסקים ומוסדות</title>
+        <title>לקוחות Take Safe | אבטחת כספות לעסקים גדולים | מוסדות ציבוריים | בנקים</title>
         <meta
           name="description"
-          content="לקוחות Take Safe כוללים מוסדות ציבוריים ועסקים גדולים בישראל. הצטרפו למאות לקוחות מרוצים שבחרו בנו לאבטחת כספות מקצועית."
+          content="לקוחות Take Safe: אוניברסיטת תל אביב, בנק הפועלים, משטרת ישראל, איכילוב, חברת החשמל ועוד. מאות לקוחות מרוצים בישראל בוחרים בנו לאבטחת כספות מקצועית."
         />
+        <meta name="keywords" content="לקוחות כספות, כספות לעסקים, כספות למוסדות, כספות לבנקים, כספות לאוניברסיטאות, כספות לבתי חולים, Take Safe לקוחות, המלצות כספות" />
+        <meta property="og:title" content="לקוחות Take Safe - מוסדות ועסקים גדולים בישראל" />
+        <meta property="og:description" content="הצטרפו למאות לקוחות מרוצים שבחרו ב-Take Safe" />
         <html lang="he" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
@@ -103,9 +110,9 @@ const Clients = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               הלקוחות שלנו
             </h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <h2 className="text-xl text-slate-600 max-w-2xl mx-auto">
               מאות לקוחות מרוצים סומכים על Take Safe לאבטחת כספות, פריצת כספות ושמירה על הנכסים החשובים ביותר שלהם.
-            </p>
+            </h2>
           </div>
 
           {/* Clients Carousel */}
@@ -126,6 +133,8 @@ const Clients = () => {
                   style={{ width: `${100 / itemsPerView}%` }}
                   aria-label={client.name}
                   role="group"
+                  itemScope
+                  itemType="https://schema.org/Organization"
                 >
                   <div className="bg-white rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300 h-24 flex items-center justify-center">
                     <img
@@ -134,7 +143,9 @@ const Clients = () => {
                       style={{ display: "inline-block", height: "2.5em" }}
                       loading="lazy"
                       decoding="async"
+                      itemProp="logo"
                     />
+                    <meta itemProp="name" content={client.name} />
                   </div>
                 </li>
               ))}
@@ -172,6 +183,7 @@ const Clients = () => {
             <button
               onClick={scrollToContact}
               className="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              aria-label="צור קשר לקבלת הצעת מחיר"
             >
               צור קשר עכשיו
             </button>

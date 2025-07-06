@@ -59,35 +59,57 @@ const ContactForm = () => {
     }));
   };
 
-  // JSON-LD for Local Business (for local SEO)
+  // Enhanced JSON-LD for Local Business
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Take Safe",
-    "url": "https://www.yoursite.com",
+    "url": "https://www.takesafe.co.il",
     "email": "Takesafe67@gmail.com",
     "telephone": "+972533570350",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "תל אביב",
+      "streetAddress": "בן-גוריון 190",
+      "addressLocality": "גבעתיים",
+      "addressRegion": "תל אביב",
+      "postalCode": "53454",
       "addressCountry": "IL"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+972533570350",
       "contactType": "customer support",
-      "areaServed": "IL"
+      "areaServed": "IL",
+      "availableLanguage": ["Hebrew", "English"]
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "priceRange": "₪₪₪",
+    "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+    "areaServed": {
+      "@type": "Country",
+      "name": "ישראל"
     }
   };
 
   return (
     <section id="contact" className="py-24 px-6 bg-gray-50">
       <Helmet>
-        <title>צור קשר - Take Safe | ייעוץ חינם לאבטחת כספות</title>
+        <title>צור קשר - Take Safe | ייעוץ חינם | התקנת כספות | פריצת כספות 24/7</title>
         <meta
           name="description"
-          content="צור קשר עם Take Safe לקבלת ייעוץ מקצועי, התקנת כספות ופתרונות אבטחה לעסק ולבית. שירות מהיר, אמין ומומלץ."
+          content="צור קשר עם Take Safe לקבלת ייעוץ מקצועי בחינם. התקנת כספות, פריצת כספות 24/7, מכירת כספות ופתרונות אבטחה לעסק ולבית. חייגו: 053-3570350"
         />
+        <meta name="keywords" content="צור קשר כספות, ייעוץ כספות חינם, התקנת כספות, פריצת כספות, Take Safe, טופס יצירת קשר, כספות תל אביב, כספות גבעתיים, שירות כספות 24/7" />
+        <meta property="og:title" content="צור קשר - Take Safe | ייעוץ חינם לאבטחת כספות" />
+        <meta property="og:description" content="קבלו ייעוץ מקצועי והצעת מחיר מותאמת אישית" />
+        <link rel="canonical" href="https://www.takesafe.co.il#contact" />
         <html lang="he" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
@@ -97,9 +119,9 @@ const ContactForm = () => {
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
             צור קשר עם Take Safe
           </h1>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          <h2 className="text-lg text-gray-600 max-w-xl mx-auto">
             השאירו פרטים בטופס וקבלו ייעוץ חינם והצעת מחיר מותאמת אישית לאבטחת הכספת שלכם
-          </p>
+          </h2>
         </header>
 
         <form
@@ -231,12 +253,14 @@ const ContactForm = () => {
             <a
               href="tel:0533570350"
               className="hover:underline flex items-center gap-2"
+              title="התקשרו אלינו"
             >
               📞 053-3570350
             </a>
             <a
               href="mailto:Takesafe67@gmail.com"
               className="hover:underline flex items-center gap-2"
+              title="שלחו מייל"
             >
               ✉️ Takesafe67@gmail.com
             </a>
@@ -245,6 +269,7 @@ const ContactForm = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline flex items-center gap-2"
+              title="שלחו הודעת WhatsApp"
             >
               💬 WhatsApp
             </a>
