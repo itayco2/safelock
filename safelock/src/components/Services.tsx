@@ -1,33 +1,70 @@
+import { useEffect } from "react";
 import { ShoppingCart, Wrench, Key, Settings, Calendar } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      title: "מכירה",
-      description: "מגוון רחב של כספות איכותיות ממותגים מובילים",
+      title: "מכירת כספות איכותיות למשרדים ועסקים",
+      description:
+        "מגוון רחב של כספות איכותיות ממותגים מובילים, פתרונות אמינים ובטוחים לעסק שלך.",
       icon: ShoppingCart,
     },
     {
-      title: "התקנה",
-      description: "התקנה מקצועית ומהירה על ידי טכנאים מנוסים",
+      title: "התקנת כספות מקצועית ומהירה",
+      description: "התקנה מקצועית ומהירה על ידי טכנאים מנוסים, עם אחריות מלאה.",
       icon: Wrench,
     },
     {
-      title: "פריצה",
-      description: "שירות פריצה במקרי חירום - 24/7",
+      title: "שירות פריצה חירום 24/7",
+      description: "שירות פריצה מקצועי במקרי חירום, זמינות מלאה 24 שעות ביממה, 7 ימים בשבוע.",
       icon: Key,
     },
     {
-      title: "תיקון",
-      description: "תיקון ותחזוקה של כספות קיימות",
+      title: "תיקון ותחזוקה של כספות קיימות",
+      description: "תיקון ותחזוקה איכותית לשמירה על כספתך במצב מיטבי.",
       icon: Settings,
     },
     {
-      title: "השכרה",
-      description: "השכרת כספות לתקופות קצרות וארוכות",
+      title: "השכרת כספות לתקופות שונות",
+      description: "השכרת כספות לתקופות קצרות וארוכות במחירים אטרקטיביים.",
       icon: Calendar,
     },
   ];
+
+  // Inject JSON-LD structured data for SEO
+  useEffect(() => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "כספות ושירותים נלווים",
+      "provider": {
+        "@type": "Organization",
+        "name": "Take Safe",
+        "url": window.location.origin,
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "השירותים שלנו",
+        "itemListElement": services.map((service) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.title,
+            "description": service.description,
+          },
+        })),
+      },
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <section
@@ -46,15 +83,20 @@ const Services = () => {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div
+          role="list"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+        >
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <article
                 key={index}
-                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
-                tabIndex={0} // Make focusable for keyboard users
+                role="listitem"
+                className="bg-white rounded-xl p-6 text-center hover:shadow-lg focus:shadow-lg transition-shadow duration-300 outline-none focus:outline-blue-500"
+                tabIndex={0}
                 aria-labelledby={`service-title-${index}`}
+                aria-describedby={`service-desc-${index}`}
               >
                 <div
                   className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4"
@@ -68,7 +110,12 @@ const Services = () => {
                 >
                   {service.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">{service.description}</p>
+                <p
+                  id={`service-desc-${index}`}
+                  className="text-slate-600 leading-relaxed"
+                >
+                  {service.description}
+                </p>
               </article>
             );
           })}

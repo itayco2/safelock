@@ -1,4 +1,44 @@
+import { useEffect } from "react";
+
 const Trust = () => {
+  useEffect(() => {
+    // Inject structured data about organization and aggregate rating for SEO
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Take Safe",
+      "url": window.location.origin,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "ratingCount": 500,
+        "reviewCount": 500,
+        "description": "שביעות רצון גבוהה של מאות לקוחות מרוצים",
+      },
+      "department": {
+        "@type": "LocalBusiness",
+        "name": "שירות פריצה והתקנת כספות",
+        "telephone": "0533570350",
+        "areaServed": "ישראל",
+        "availableService": {
+          "@type": "Service",
+          "name": "התקנת כספות",
+          "serviceType": "התקנה ותחזוקה של כספות"
+        }
+      }
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <section
       className="py-16 px-4 bg-blue-900 text-white"
@@ -40,30 +80,38 @@ const Trust = () => {
           </p>
         </div>
 
-        <div
+        <ul
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
-          role="list"
           aria-label="נתוני ביצועים"
         >
-          <div role="listitem" className="text-center">
-            <div className="text-3xl font-bold text-white mb-2" aria-label="500 פלוס כספות הותקנו">
+          <li className="text-center">
+            <div
+              className="text-3xl font-bold text-white mb-2"
+              aria-label="יותר מ-500 כספות הותקנו על ידי החברה"
+            >
               500+
             </div>
             <div className="text-blue-200">כספות הותקנו</div>
-          </div>
-          <div role="listitem" className="text-center">
-            <div className="text-3xl font-bold text-white mb-2" aria-label="זמינות שירות 24 שבעה">
+          </li>
+          <li className="text-center">
+            <div
+              className="text-3xl font-bold text-white mb-2"
+              aria-label="זמינות שירות מלאה 24 שעות ביממה, 7 ימים בשבוע"
+            >
               24/7
             </div>
             <div className="text-blue-200">שירות זמינות</div>
-          </div>
-          <div role="listitem" className="text-center">
-            <div className="text-3xl font-bold text-white mb-2" aria-label="שביעות רצון 100 אחוז">
+          </li>
+          <li className="text-center">
+            <div
+              className="text-3xl font-bold text-white mb-2"
+              aria-label="שביעות רצון של 100 אחוז מהלקוחות"
+            >
               100%
             </div>
             <div className="text-blue-200">שביעות רצון</div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
   );

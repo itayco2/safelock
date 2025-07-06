@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const FAQ = () => {
@@ -31,7 +32,7 @@ const FAQ = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Inject FAQPage structured data for SEO
+  // ✅ SEO: Inject FAQPage structured data
   useEffect(() => {
     const structuredData = {
       "@context": "https://schema.org",
@@ -58,16 +59,25 @@ const FAQ = () => {
 
   return (
     <section className="py-20 px-4 bg-white" aria-labelledby="faq-heading">
+      <Helmet>
+        <title>שאלות ותשובות - Take Safe | כל מה שצריך לדעת על כספות</title>
+        <meta
+          name="description"
+          content="מצא תשובות לשאלות נפוצות על התקנת כספות, שירות פריצה, סוגי כספות ואחריות עם Take Safe. מידע אמין ושירות מקצועי."
+        />
+        <html lang="he" />
+      </Helmet>
+
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-16">
-          <h2
+          <h1
             id="faq-heading"
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-4"
           >
-            שאלות נפוצות
-          </h2>
+            שאלות נפוצות על כספות Take Safe
+          </h1>
           <p className="text-xl text-slate-600">
-            תשובות לשאלות הנפוצות ביותר מלקוחותינו
+            כל מה שרציתם לדעת על שירותי התקנה, פריצה, ואחריות לכספות
           </p>
         </header>
 

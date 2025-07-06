@@ -41,7 +41,7 @@ const Clients = () => {
     return () => clearInterval(interval);
   }, [clients.length]);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
@@ -57,25 +57,34 @@ const Clients = () => {
     }
   };
 
-  // JSON-LD structured data for clients (Organization)
+  // Improved JSON-LD with publisher
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "לקוחות Take Safe",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Take Safe",
+      "url": "https://www.yoursite.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.yoursite.com/logo.png"
+      }
+    },
     "itemListElement": clients.map((client, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "name": client.name,
+      "name": client.name
     })),
   };
 
   return (
     <>
       <Helmet>
-        <title>הלקוחות שלנו - Take Safe אבטחת כספות</title>
+        <title>לקוחות Take Safe - אבטחת כספות לעסקים ומוסדות</title>
         <meta
           name="description"
-          content="Take Safe גאה לשרת מאות לקוחות מרוצים, כולל מוסדות גדולים ועסקים מובילים בישראל."
+          content="לקוחות Take Safe כוללים מוסדות ציבוריים ועסקים גדולים בישראל. הצטרפו למאות לקוחות מרוצים שבחרו בנו לאבטחת כספות מקצועית."
         />
         <html lang="he" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -84,17 +93,25 @@ const Clients = () => {
       <section id="clients" className="py-20 px-4 bg-slate-50" aria-label="לקוחות Take Safe">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               הלקוחות שלנו
-            </h2>
+            </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              מאות לקוחות מרוצים סומכים עלינו לאבטחת הנכסים החשובים ביותר שלהם
+              מאות לקוחות מרוצים סומכים על Take Safe לאבטחת כספות, פריצת כספות ושמירה על הנכסים החשובים ביותר שלהם.
             </p>
           </div>
 
           {/* Clients Carousel */}
-          <div className="relative overflow-hidden" role="region" aria-roledescription="carousel" aria-label="לקוחות">
-            <ul className="flex transition-transform duration-500 ease-in-out" aria-live="polite">
+          <div
+            className="relative overflow-hidden"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="לקוחות"
+          >
+            <ul
+              className="flex transition-transform duration-500 ease-in-out"
+              aria-live="polite"
+            >
               {getVisibleClients().map((client, index) => (
                 <li
                   key={(currentIndex + index) % clients.length}
@@ -106,7 +123,7 @@ const Clients = () => {
                   <div className="bg-white rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300 h-24 flex items-center justify-center">
                     <img
                       src={client.logoSrc}
-                      alt={client.name}
+                      alt={`${client.name} - לקוח Take Safe שירות אבטחת כספות`}
                       style={{ display: "inline-block", height: "2.5em" }}
                       loading="lazy"
                       decoding="async"
@@ -118,7 +135,11 @@ const Clients = () => {
           </div>
 
           {/* Dots Navigation */}
-          <div className="flex justify-center mt-8 gap-3" role="tablist" aria-label="בחר לוגו לקוח">
+          <div
+            className="flex justify-center mt-8 gap-3"
+            role="tablist"
+            aria-label="בחר לוגו לקוח"
+          >
             {clients.map((_, index) => (
               <button
                 key={index}
@@ -138,9 +159,15 @@ const Clients = () => {
 
           <div className="text-center mt-12">
             <p className="text-lg text-slate-600 font-medium">
-              "Take Safe תוכל לדאוג לביטחון שלך"
+              "Take Safe - אבטחת כספות לעסקים, מוסדות ובתים פרטיים"
             </p>
-            <p className="text-slate-500 mt-2">מאות לקוחות מרוצים</p>
+            <p className="text-slate-500 mt-2">מאות לקוחות מרוצים בישראל</p>
+            <a
+              href="/contact"
+              className="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              צור קשר עכשיו
+            </a>
           </div>
         </div>
       </section>

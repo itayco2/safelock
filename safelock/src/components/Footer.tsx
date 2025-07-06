@@ -1,36 +1,69 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Footer = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Take Safe",
+    url: "https://www.takesafe.co.il",
+    logo: "https://www.takesafe.co.il/assets/images/logo.png",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+972-53-3570350",
+        contactType: "customer service",
+        areaServed: "IL",
+        availableLanguage: ["he"]
+      }
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "בן-גוריון 190",
+      addressLocality: "גבעתיים",
+      addressCountry: "IL"
+    }
+  };
+
   return (
     <footer
       className="bg-slate-900 text-white py-16 px-6 md:px-12"
-      aria-label="Footer"
+      aria-label="כותרת תחתונה"
       lang="he"
     >
+      <Helmet>
+        <title>Take Safe - שירותי כספות | צור קשר</title>
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo & Description */}
           <div>
             <div className="flex items-center mb-5">
-              <h3 className="text-3xl font-extrabold tracking-wide">Take Safe</h3>
+              <h2 className="text-3xl font-extrabold tracking-wide">
+                Take Safe
+              </h2>
             </div>
             <p className="text-slate-300 leading-relaxed text-lg">
-              מומחים בכספות ופריצות עם ניסיון של שנים.
+              מומחים לכספות ופריצות עם ניסיון של שנים.
               <br />
-              אנחנו כאן כדי לשמור על הבטחון שלכם  שירות מקצועי, אמין ומהיר.
+              אנחנו כאן לשמור על הבטחון שלכם — שירות אמין, מקצועי ומהיר.
             </p>
           </div>
 
           {/* Services */}
           <nav aria-label="השירותים שלנו">
-            <h4 className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2">
+            <h3 className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2">
               השירותים שלנו
-            </h4>
+            </h3>
             <ul className="space-y-3 text-slate-400 text-base leading-relaxed">
               <li>• מכירת כספות לעסקים</li>
-              <li>• כספות לבעלי נשק</li>
+              <li>• כספות לנשק</li>
               <li>• התקנה מקצועית</li>
-              <li>• שירות פריצה</li>
+              <li>• שירותי פריצה</li>
               <li>• תחזוקה ותיקונים</li>
               <li>• השכרת כספות</li>
             </ul>
@@ -38,15 +71,20 @@ const Footer = () => {
 
           {/* Contact */}
           <section aria-labelledby="contact-heading">
-            <h4
+            <h3
               id="contact-heading"
               className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2"
             >
-              צרו קשר
-            </h4>
+              צור קשר
+            </h3>
             <div className="space-y-5 text-slate-400 text-base">
               <div className="flex items-center gap-3">
-                <span role="img" aria-label="טלפון" title="טלפון" className="text-2xl">
+                <span
+                  role="img"
+                  aria-label="טלפון"
+                  title="טלפון"
+                  className="text-2xl"
+                >
                   📞
                 </span>
                 <a
@@ -58,7 +96,12 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <span role="img" aria-label="אימייל" title="אימייל" className="text-2xl">
+                <span
+                  role="img"
+                  aria-label="אימייל"
+                  title="אימייל"
+                  className="text-2xl"
+                >
                   ✉️
                 </span>
                 <a
@@ -70,7 +113,12 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <span role="img" aria-label="וואטסאפ" title="וואטסאפ" className="text-2xl">
+                <span
+                  role="img"
+                  aria-label="וואטסאפ"
+                  title="וואטסאפ"
+                  className="text-2xl"
+                >
                   💬
                 </span>
                 <a
@@ -86,11 +134,14 @@ const Footer = () => {
             </div>
           </section>
 
-          {/* Address & Hours */}
-          <address className="not-italic" aria-label="כתובת ושעות פעילות">
-            <h4 className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2">
+          {/* Address */}
+          <address
+            className="not-italic"
+            aria-label="כתובת ושעות פעילות"
+          >
+            <h3 className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2">
               כתובת ושעות פעילות
-            </h4>
+            </h3>
             <div className="space-y-5 text-slate-400 text-base leading-relaxed">
               <div className="flex items-start gap-3">
                 <span
@@ -107,7 +158,12 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span role="img" aria-label="שעות פעילות" title="שעות פעילות" className="text-2xl mt-1">
+                <span
+                  role="img"
+                  aria-label="שעות פעילות"
+                  title="שעות פעילות"
+                  className="text-2xl mt-1"
+                >
                   🕒
                 </span>
                 <div>
@@ -119,11 +175,10 @@ const Footer = () => {
           </address>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-slate-700 mt-12 pt-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <p className="text-slate-500 text-sm md:text-base" lang="he">
-              © 2025 Take Safe כל הזכויות שמורות
+              © 2025 Take Safe — כל הזכויות שמורות
             </p>
             <nav aria-label="קישורים תחתונים">
               <div className="flex gap-6 md:gap-8">

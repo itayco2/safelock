@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,7 +15,7 @@ const ContactForm = () => {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.phone || !formData.city) {
@@ -51,24 +52,53 @@ const ContactForm = () => {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
+  // JSON-LD for Local Business (for local SEO)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Take Safe",
+    "url": "https://www.yoursite.com",
+    "email": "office.safelock@gmail.com",
+    "telephone": "+972533570350",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "תל אביב",
+      "addressCountry": "IL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+972533570350",
+      "contactType": "customer support",
+      "areaServed": "IL"
+    }
+  };
+
   return (
     <section id="contact" className="py-24 px-6 bg-gray-50">
+      <Helmet>
+        <title>צור קשר - Take Safe | ייעוץ חינם לאבטחת כספות</title>
+        <meta
+          name="description"
+          content="צור קשר עם Take Safe לקבלת ייעוץ מקצועי, התקנת כספות ופתרונות אבטחה לעסק ולבית. שירות מהיר, אמין ומומלץ."
+        />
+        <html lang="he" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+
       <div className="max-w-3xl mx-auto">
         <header className="mb-16 text-center">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-            מעוניינים בפרטים נוספים או בהצעה שלא תוכלו לסרב לה?
-          </h2>
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+            צור קשר עם Take Safe
+          </h1>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
-            השאירו פרטים בטופס ונחזור אליכם עם ייעוץ חינם והצעה משתלמת
+            השאירו פרטים בטופס וקבלו ייעוץ חינם והצעת מחיר מותאמת אישית לאבטחת הכספת שלכם
           </p>
         </header>
 
@@ -76,6 +106,7 @@ const ContactForm = () => {
           onSubmit={handleSubmit}
           className="bg-white shadow-lg rounded-3xl p-10 md:p-12 space-y-8"
           noValidate
+          aria-label="טופס צור קשר Take Safe"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -93,7 +124,6 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="הכניסו את שמכם"
-                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
               />
             </div>
 
@@ -110,8 +140,7 @@ const ContactForm = () => {
                 type="text"
                 value={formData.business}
                 onChange={handleChange}
-                placeholder="שם החברה או העסק (אופציונלי)"
-                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+                placeholder="שם החברה (אם רלוונטי)"
               />
             </div>
           </div>
@@ -132,7 +161,6 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="050-1234567"
-                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
               />
             </div>
 
@@ -150,8 +178,7 @@ const ContactForm = () => {
                 value={formData.city}
                 onChange={handleChange}
                 required
-                placeholder="איזו עיר?"
-                className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+                placeholder="עיר מגורים / עסק"
               />
             </div>
           </div>
@@ -170,7 +197,6 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@email.com"
-              className="w-full rounded-xl border border-gray-300 px-5 py-3 focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
             />
           </div>
 
@@ -187,8 +213,7 @@ const ContactForm = () => {
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              placeholder="ספרו לנו על הצורך שלכם - איזה סוג כספת, לאיזה מטרה, וכל פרט שיעזור לנו להכין הצעה מדויקת"
-              className="w-full rounded-xl border border-gray-300 px-5 py-4 resize-none focus:ring-3 focus:ring-blue-400 focus:outline-none transition"
+              placeholder="פרטו יותר על הצורך שלכם - סוג כספת, מיקום התקנה, דרישות מיוחדות"
             />
           </div>
 
@@ -196,15 +221,15 @@ const ContactForm = () => {
             type="submit"
             className="w-full bg-blue-900 hover:bg-blue-800 text-white text-lg font-semibold py-4 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105"
           >
-            שלח בקשה
+            שלחו בקשה עכשיו
           </Button>
         </form>
 
         <footer className="mt-12 pt-10 border-t border-gray-200 text-center text-gray-600 space-y-4">
-          <p>או צרו קשר ישירות:</p>
+          <p>או דברו איתנו ישירות:</p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-blue-900 font-semibold">
             <a
-              href="tel:050-1234567"
+              href="tel:0533570350"
               className="hover:underline flex items-center gap-2"
             >
               📞 053-3570350
