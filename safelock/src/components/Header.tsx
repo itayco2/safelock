@@ -53,7 +53,7 @@ const Header = () => {
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-32">
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer"
@@ -70,10 +70,10 @@ const Header = () => {
             <img
               src="/assets/images/logo.jpg"
               alt="לוגו Take Safe"
-              className="w-14.5 h-14 ml-2"
+              className="w-28 h-28 ml-4"
               loading="eager"
             />
-            <span className="text-xl font-bold text-slate-900 mr-2">
+            <span className="text-2xl font-bold text-slate-900 mr-3 whitespace-nowrap">
               Take Safe
             </span>
           </div>
@@ -81,63 +81,63 @@ const Header = () => {
           {/* Navigation */}
           <nav
             aria-label="ניווט ראשי"
-            className="hidden md:flex items-center"
+            className="hidden md:flex items-center whitespace-nowrap"
           >
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4"
+              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
               aria-label="מעבר לסקשן ראשי"
               type="button"
             >
               ראשי
             </button>
 
-            <span className="text-slate-400 mx-4" aria-hidden="true">
+            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
               |
             </span>
 
             <button
               onClick={() => scrollToSection("safes")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4"
+              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
               aria-label="מעבר לסוגי כספות"
               type="button"
             >
               סוגי כספות
             </button>
 
-            <span className="text-slate-400 mx-4" aria-hidden="true">
+            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
               |
             </span>
 
             <button
               onClick={() => scrollToSection("services")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4"
+              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
               aria-label="מעבר לסקשן שירותים"
               type="button"
             >
               שירותים
             </button>
 
-            <span className="text-slate-400 mx-4" aria-hidden="true">
+            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
               |
             </span>
 
             <button
               onClick={() => scrollToSection("clients")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4"
+              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
               aria-label="מעבר לסקשן לקוחות"
               type="button"
             >
               לקוחות
             </button>
 
-            <span className="text-slate-400 mx-4" aria-hidden="true">
+            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
               |
             </span>
 
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4"
+              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
               aria-label="מעבר לסקשן צור קשר"
               type="button"
             >
@@ -149,10 +149,10 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <a
               href="tel:0533570350"
-              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors"
+              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-lg whitespace-nowrap"
               aria-label="התקשרו אלינו"
             >
-              <Phone className="w-4 h-4 ml-2" aria-hidden="true" />
+              <Phone className="w-6 h-6 ml-3" aria-hidden="true" />
               053-3570350
             </a>
           </div>

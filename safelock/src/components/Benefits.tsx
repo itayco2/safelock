@@ -1,5 +1,4 @@
 import { Shield, Clock, Users, Wrench, Award } from "lucide-react";
-import { Helmet } from "react-helmet";
 
 const Benefits = () => {
   const benefits = [
@@ -30,54 +29,93 @@ const Benefits = () => {
     },
   ];
 
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <>
-      <Helmet>
-        <title>למה לבחור ב-Take Safe? פתרונות כספות מקצועיים ואמינים</title>
-        <meta
-          name="description"
-          content="Take Safe – מומחים בכספות, פריצות ושירותי אבטחה עם ניסיון רב ושירות 24/7. פתרונות מותאמים אישית לאבטחת הנכסים שלך."
-        />
-        <meta name="keywords" content="כספות, פריצות כספות, שירות פריצה, התקנת כספות, אבטחה, שירות 24/7, Take Safe, שירות לקוחות, אבטחת נכסים" />
-        <html lang="he" />
-      </Helmet>
+    <main className="py-20 px-4 bg-white">
+      <article className="max-w-6xl mx-auto">
+        <header className="text-center mb-16">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            למה לבחור ב-Take Safe?
+          </h1>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            מומחים באבטחת כספות, פריצות ושירותי התקנה עם שירות לקוחות יוצא מן הכלל
+          </p>
+        </header>
 
-      <main className="py-20 px-4 bg-white">
-        <article className="max-w-6xl mx-auto">
-          <header className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              למה לבחור ב-Take Safe? פתרונות כספות מקצועיים
-            </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              מומחים באבטחת כספות, פריצות ושירותי התקנה עם שירות לקוחות יוצא מן הכלל
-            </p>
-          </header>
-
-          <section
-            aria-label="יתרונות Take Safe – ניסיון, שירות ומהירות"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {benefits.map((benefit, index) => (
+        <section
+          aria-label="יתרונות Take Safe – ניסיון, שירות ומהירות"
+          className="mb-16"
+        >
+          {/* First row - 3 items */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+            {benefits.slice(0, 3).map((benefit, index) => (
               <article
                 key={index}
-                className="bg-slate-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100"
                 aria-labelledby={`benefit-title-${index}`}
                 role="region"
               >
-                <div className="text-blue-900 mb-4">{benefit.icon}</div>
+                <div className="text-blue-600 mb-6 flex justify-center md:justify-start">
+                  {benefit.icon}
+                </div>
                 <h2
                   id={`benefit-title-${index}`}
-                  className="text-xl font-semibold text-slate-900 mb-3"
+                  className="text-xl font-semibold text-slate-900 mb-4 text-center md:text-right"
                 >
                   {benefit.title}
                 </h2>
-                <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
+                <p className="text-slate-600 leading-relaxed text-center md:text-right">
+                  {benefit.description}
+                </p>
               </article>
             ))}
-          </section>
-        </article>
-      </main>
-    </>
+          </div>
+
+          {/* Second row - 2 items centered with gap */}
+          <div className="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
+            {benefits.slice(3, 5).map((benefit, index) => (
+              <article
+                key={index + 3}
+                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 flex-1 md:max-w-md"
+                aria-labelledby={`benefit-title-${index + 3}`}
+                role="region"
+              >
+                <div className="text-blue-600 mb-6 flex justify-center md:justify-start">
+                  {benefit.icon}
+                </div>
+                <h2
+                  id={`benefit-title-${index + 3}`}
+                  className="text-xl font-semibold text-slate-900 mb-4 text-center md:text-right"
+                >
+                  {benefit.title}
+                </h2>
+                <p className="text-slate-600 leading-relaxed text-center md:text-right">
+                  {benefit.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="text-center bg-white p-8 rounded-xl shadow-md">
+          <p className="text-lg text-slate-700 font-medium mb-6">
+            מעוניינים לקבל שירות מקצועי לכספות שלכם?
+          </p>
+          <button
+            onClick={scrollToContact}
+            className="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            צור קשר עכשיו
+          </button>
+        </div>
+      </article>
+    </main>
   );
 };
 

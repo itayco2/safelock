@@ -70,7 +70,7 @@ const Services = () => {
     <section
       id="services"
       aria-label="השירותים שלנו"
-      className="py-20 px-4 bg-slate-50"
+      className="py-20 px-4 bg-white"
       lang="he"
     >
       <div className="max-w-7xl mx-auto">
@@ -93,7 +93,7 @@ const Services = () => {
               <article
                 key={index}
                 role="listitem"
-                className="bg-white rounded-xl p-6 text-center hover:shadow-lg focus:shadow-lg transition-shadow duration-300 outline-none focus:outline-blue-500"
+                className="bg-slate-50 rounded-xl p-6 text-center hover:shadow-lg focus:shadow-lg transition-shadow duration-300 outline-none focus:outline-blue-500"
                 tabIndex={0}
                 aria-labelledby={`service-title-${index}`}
                 aria-describedby={`service-desc-${index}`}

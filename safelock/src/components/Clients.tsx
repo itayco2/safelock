@@ -45,6 +45,13 @@ const Clients = () => {
     setCurrentIndex(index);
   };
 
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const getVisibleClients = () => {
     const endIndex = currentIndex + itemsPerView;
     if (endIndex <= clients.length) {
@@ -162,12 +169,12 @@ const Clients = () => {
               "Take Safe - אבטחת כספות לעסקים, מוסדות ובתים פרטיים"
             </p>
             <p className="text-slate-500 mt-2">מאות לקוחות מרוצים בישראל</p>
-            <a
-              href="/contact"
-              className="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            <button
+              onClick={scrollToContact}
+              className="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
             >
               צור קשר עכשיו
-            </a>
+            </button>
           </div>
         </div>
       </section>

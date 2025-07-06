@@ -44,14 +44,14 @@ const Hero = () => {
       </Helmet>
 
       <div className="max-w-6xl mx-auto text-center">
-        <div className="mb-10">
+        {/* <div className="mb-10">
           <img
             src="assets/images/logo.jpg"
             alt="לוגו Take Safe - כספות בטוחות לעסקים ובעלי נשק"
             className="w-40 h-40 mx-auto mb-6"
             loading="eager"
           />
-        </div>
+        </div> */}
 
         <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 leading-tight">
           כספות בטוחות לעסקים ובעלי נשק
