@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { FileText, Clock, ArrowLeft, X } from "lucide-react";
+import { FileText, Clock, ArrowLeft, X, ChevronDown, ChevronUp } from "lucide-react";
 
 const Articles = () => {
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [showAllArticles, setShowAllArticles] = useState(false);
 
   const articles = [
    {
@@ -117,8 +118,55 @@ const Articles = () => {
 • תחזוקה תקופתית, בדיקות שוטפות וטיפול מהיר בתקלות.
 
 לסיכום, כספות לעסקים אינן מותרות – הן הכרח. הן מגינות על מידע, רכוש, מזומנים ומוניטין עסקי, ומהוות השקעה בטוחה לעתיד העסק שלך.`
+},
+ {
+      title: "יתרונות כספות משרדיות בעידן המודרני",
+      summary: "מדוע כל משרד צריך כספת ואילו תכונות חשובות באמת?",
+      readTime: "6 דקות קריאה",
+      category: "נכסים ומידע",
+      content: `בעידן שבו מידע רגיש, מסמכים חשובים ונכסים יקרי ערך נשמרים בתוך חלל העבודה – כספות משרדיות הפכו למרכיב קריטי בשמירה על ביטחון המשרד.
+
+1. שמירה על מסמכים רגישים: כל עסק מתמודד עם מידע משפטי, פיננסי או תכנוני שחייב להיות שמור הרמטית. כספות מספקות הגנה מפני גניבה, גישה לא מורשית או נזקי אש.
+
+2. התאמה אישית לצרכים משרדיים: ניתן לבחור כספות קומפקטיות לאחסון מתחת לשולחן, כספות קיר, או יחידות גדולות המותאמות לשרתים ומדיה דיגיטלית.
+
+3. תפעול נוח ויעיל: מנעולים אלקטרוניים או ביומטריים חוסכים זמן, מאפשרים הרשאות גישה לפי תפקיד ומונעים טעויות אנוש.
+
+4. מראה ייצוגי ובטיחותי: כספות משרדיות מודרניות מגיעות בעיצובים שמשתלבים בריהוט, מבלי לפגוע באסתטיקה הכללית של החלל.
+
+5. עמידות לאורך שנים: בחירה נכונה תבטיח שהכספת תשרת את המשרד לאורך זמן ללא תקלות או צורך בהחלפה.
+
+לסיכום, כספות משרדיות הן לא רק כלי אחסון – הן אמצעי אבטחה חיוני, מרכיב תפעולי חכם ופתרון עיצובי מושלם לעידן העבודה המודרני.`
+    },
+    {
+  title: "כספות ביומטריות – העתיד של אבטחת המידע",
+  summary: "מהי כספת ביומטרית, איך היא פועלת ולמה יותר ויותר עסקים בוחרים בה?",
+  readTime: "6 דקות קריאה",
+  category: "טכנולוגיה מתקדמת",
+  content: `בעידן שבו אבטחת מידע ונכסים הופכת לקריטית יותר מאי פעם, כספות ביומטריות מציעות פתרון חכם, מתקדם ונגיש במיוחד לעסקים מכל סוג.
+
+1. מהי כספת ביומטרית?
+כספת ביומטרית היא כספת המזהה את המשתמש באמצעות סימן פיזי ייחודי – לרוב טביעת אצבע, ולעיתים גם זיהוי פנים או רשתית. הטכנולוגיה הזו מבטלת את הצורך בקוד או מפתח – מה שמפחית משמעותית את הסיכון לאובדן גישה.
+
+2. יתרונות משמעותיים לעסקים:
+• נוחות מרבית – אין צורך לזכור סיסמאות או לשאת מפתחות.
+• אבטחה ברמה גבוהה – טביעת האצבע ייחודית לכל אדם ומקשה מאוד על חדירה לא מורשית.
+• שליטה והרשאות – ניתן להגדיר מי מהעובדים יכול לגשת לתכולת הכספת ובאילו שעות.
+
+3. התאמה מושלמת לעולם העבודה החדש:
+בסביבות עבודה דינאמיות, הכספת הביומטרית מספקת נגישות מהירה לצד שמירה מוחלטת על סודיות ובטיחות. עסקים בתחומי הרפואה, הפיננסים והנדל״ן כבר עוברים לפתרונות אלו בזכות היעילות והחדשנות שהן מציעות.
+
+4. מה לבדוק לפני רכישת כספת ביומטרית?
+• אמינות הסורק – חשוב לבדוק שהזיהוי עובד גם בתנאי אבק או לחות.
+• יכולת גיבוי – ודא שיש גם דרך גיבוי (קוד או מפתח מכני) למקרי חירום.
+• קיבולת משתמשים – עסקים עם כמה עובדים צריכים לבחור דגם שתומך במספר טביעות שונות.
+
+לסיכום, כספות ביומטריות מייצגות את הדור הבא של אבטחת מידע פיזית – שילוב של נוחות, טכנולוגיה מתקדמת ורמת הגנה גבוהה, שמתאים במיוחד לעולם העסקי של היום.`
 }
+
   ];
+
+  const displayedArticles = showAllArticles ? articles : articles.slice(0, 3);
 
   return (
     <>
@@ -143,12 +191,27 @@ const Articles = () => {
           }
         }
 
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
         }
 
         .animate-slideIn {
           animation: slideIn 0.4s ease-out;
+        }
+
+        .animate-slideDown {
+          animation: slideDown 0.5s ease-out;
         }
 
         .scrollbar-custom::-webkit-scrollbar {
@@ -182,10 +245,12 @@ const Articles = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
+            {displayedArticles.map((article, index) => (
               <article
                 key={index}
-                className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-slate-300 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                className={`bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-slate-300 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
+                  index >= 3 ? 'animate-slideDown' : ''
+                }`}
                 onClick={() => setSelectedArticle(article)}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -212,6 +277,26 @@ const Articles = () => {
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Show More/Less Button */}
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => setShowAllArticles(!showAllArticles)}
+              className="flex items-center gap-2 px-8 py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              {showAllArticles ? (
+                <>
+                  הצג פחות מאמרים
+                  <ChevronUp className="w-5 h-5" />
+                </>
+              ) : (
+                <>
+                  הצג עוד מאמרים
+                  <ChevronDown className="w-5 h-5" />
+                </>
+              )}
+            </button>
           </div>
         </div>
 
