@@ -60,7 +60,7 @@ const Header = () => {
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20 md:h-32">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer"
@@ -77,12 +77,9 @@ const Header = () => {
             <img
               src="/assets/images/logo.jpg"
               alt="לוגו Take Safe"
-              className="w-16 h-16 md:w-28 md:h-28 ml-2 md:ml-4"
+              className="w-12 h-12 md:w-20 md:h-20 ml-2 md:ml-4"
               loading="eager"
             />
-            <span className="text-xl md:text-2xl font-bold text-slate-900 mr-1 md:mr-3">
-              Take Safe
-            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -91,14 +88,14 @@ const Header = () => {
               <div key={item.section} className="flex items-center">
                 <button
                   onClick={() => scrollToSection(item.section)}
-                  className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
+                  className="text-slate-700 hover:text-blue-900 transition-colors px-3 text-base"
                   aria-label={`מעבר ל${item.label}`}
                   type="button"
                 >
                   {item.label}
                 </button>
                 {index < navItems.length - 1 && (
-                  <span className="text-slate-400 mx-2 text-lg" aria-hidden="true">
+                  <span className="text-slate-400 mx-2" aria-hidden="true">
                     |
                   </span>
                 )}
@@ -110,10 +107,10 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <a
               href="tel:0509914009"
-              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-base md:text-lg"
+              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-sm md:text-base"
               aria-label="התקשרו אלינו"
             >
-              <Phone className="w-5 h-5 md:w-6 md:h-6 ml-2" aria-hidden="true" />
+              <Phone className="w-4 h-4 md:w-5 md:h-5 ml-2" aria-hidden="true" />
               <span className="hidden sm:inline">050-9914009</span>
               <span className="sm:hidden">חייגו</span>
             </a>
@@ -125,19 +122,19 @@ const Header = () => {
               aria-label="תפריט ניווט"
               type="button"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-slate-200" aria-label="ניווט מובייל">
+          <nav className="lg:hidden py-3 border-t border-slate-200" aria-label="ניווט מובייל">
             {navItems.map((item) => (
               <button
                 key={item.section}
                 onClick={() => scrollToSection(item.section)}
-                className="block w-full text-right py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-blue-900 transition-colors text-lg"
+                className="block w-full text-right py-2.5 px-4 text-slate-700 hover:bg-slate-50 hover:text-blue-900 transition-colors text-base"
                 aria-label={`מעבר ל${item.label}`}
                 type="button"
               >
