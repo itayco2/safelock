@@ -11,6 +11,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import SafeContentBlock from "@/components/SafeContentBlock";
 import CinematicSafeIntro from "@/components/CinematicSafeIntro";
+import Articles from "@/components/Articles";
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
       <Clients />
       <Trust />
       <FAQ />
+      <Articles/>
       <ContactForm />
       <Footer />
     </div>

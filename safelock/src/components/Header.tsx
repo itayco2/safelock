@@ -1,14 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { useState } from "react";
+import { Phone, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
   };
 
   const navigateToHome = () => {
@@ -16,6 +18,7 @@ const Header = () => {
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 100);
+    setIsMobileMenuOpen(false);
   };
 
   const structuredData = {
@@ -35,12 +38,16 @@ const Header = () => {
     ],
   };
 
+  const navItems = [
+    { label: "ראשי", section: "hero" },
+    { label: "סוגי כספות", section: "safes" },
+    { label: "שירותים", section: "services" },
+    { label: "לקוחות", section: "clients" },
+    { label: "צור קשר", section: "contact" },
+  ];
+
   return (
-    <header
-      className="bg-white shadow-md sticky top-0 z-50"
-      role="banner"
-      lang="he"
-    >
+    <header className="bg-white shadow-md sticky top-0 z-50" role="banner" lang="he">
       <Helmet>
         <title>Take Safe | מומחים בכספות ושירותי פריצה</title>
         <meta
@@ -53,7 +60,7 @@ const Header = () => {
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-32">
+        <div className="flex items-center justify-between h-20 md:h-32">
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer"
@@ -70,93 +77,75 @@ const Header = () => {
             <img
               src="/assets/images/logo.jpg"
               alt="לוגו Take Safe"
-              className="w-28 h-28 ml-4"
+              className="w-16 h-16 md:w-28 md:h-28 ml-2 md:ml-4"
               loading="eager"
             />
-            <span className="text-2xl font-bold text-slate-900 mr-3 whitespace-nowrap">
+            <span className="text-xl md:text-2xl font-bold text-slate-900 mr-1 md:mr-3">
               Take Safe
             </span>
           </div>
 
-          {/* Navigation */}
-          <nav
-            aria-label="ניווט ראשי"
-            className="hidden md:flex items-center whitespace-nowrap"
-          >
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
-              aria-label="מעבר לסקשן ראשי"
-              type="button"
-            >
-              ראשי
-            </button>
-
-            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
-              |
-            </span>
-
-            <button
-              onClick={() => scrollToSection("safes")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
-              aria-label="מעבר לסוגי כספות"
-              type="button"
-            >
-              סוגי כספות
-            </button>
-
-            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
-              |
-            </span>
-
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
-              aria-label="מעבר לסקשן שירותים"
-              type="button"
-            >
-              שירותים
-            </button>
-
-            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
-              |
-            </span>
-
-            <button
-              onClick={() => scrollToSection("clients")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
-              aria-label="מעבר לסקשן לקוחות"
-              type="button"
-            >
-              לקוחות
-            </button>
-
-            <span className="text-slate-400 mx-4 text-lg" aria-hidden="true">
-              |
-            </span>
-
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
-              aria-label="מעבר לסקשן צור קשר"
-              type="button"
-            >
-              צור קשר
-            </button>
+          {/* Desktop Navigation */}
+          <nav aria-label="ניווט ראשי" className="hidden lg:flex items-center">
+            {navItems.map((item, index) => (
+              <div key={item.section} className="flex items-center">
+                <button
+                  onClick={() => scrollToSection(item.section)}
+                  className="text-slate-700 hover:text-blue-900 transition-colors px-4 text-lg"
+                  aria-label={`מעבר ל${item.label}`}
+                  type="button"
+                >
+                  {item.label}
+                </button>
+                {index < navItems.length - 1 && (
+                  <span className="text-slate-400 mx-2 text-lg" aria-hidden="true">
+                    |
+                  </span>
+                )}
+              </div>
+            ))}
           </nav>
 
-          {/* Call */}
-          <div className="flex items-center space-x-4">
+          {/* Phone & Mobile Menu Button */}
+          <div className="flex items-center gap-4">
             <a
-              href="tel:0533570350"
-              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-lg whitespace-nowrap"
+              href="tel:0509914009"
+              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-base md:text-lg"
               aria-label="התקשרו אלינו"
             >
-              <Phone className="w-6 h-6 ml-3" aria-hidden="true" />
-              053-3570350
+              <Phone className="w-5 h-5 md:w-6 md:h-6 ml-2" aria-hidden="true" />
+              <span className="hidden sm:inline">050-9914009</span>
+              <span className="sm:hidden">חייגו</span>
             </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-slate-700 hover:text-blue-900 transition-colors"
+              aria-label="תפריט ניווט"
+              type="button"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <nav className="lg:hidden py-4 border-t border-slate-200" aria-label="ניווט מובייל">
+            {navItems.map((item) => (
+              <button
+                key={item.section}
+                onClick={() => scrollToSection(item.section)}
+                className="block w-full text-right py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-blue-900 transition-colors text-lg"
+                aria-label={`מעבר ל${item.label}`}
+                type="button"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );

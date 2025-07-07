@@ -70,8 +70,8 @@ const Terms = () => {
                 Takesafe67@gmail.com
               </a>
               או בטלפון
-              <a href="tel:0533570350" className="text-blue-600 underline mx-1">
-                053-3570350
+              <a href="tel:0509914009" className="text-blue-600 underline mx-1">
+                050-9914009
               </a>
               .
             </p>

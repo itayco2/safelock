@@ -19,7 +19,7 @@ const Trust = () => {
       "department": {
         "@type": "LocalBusiness",
         "name": "שירות פריצה והתקנת כספות",
-        "telephone": "0533570350",
+        "telephone": "0509914009",
         "areaServed": "ישראל",
         "availableService": {
           "@type": "Service",

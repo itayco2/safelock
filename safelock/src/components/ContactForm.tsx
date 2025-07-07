@@ -104,7 +104,7 @@ const ContactForm = () => {
         <title>צור קשר - Take Safe | ייעוץ חינם | התקנת כספות | פריצת כספות 24/7</title>
         <meta
           name="description"
-          content="צור קשר עם Take Safe לקבלת ייעוץ מקצועי בחינם. התקנת כספות, פריצת כספות 24/7, מכירת כספות ופתרונות אבטחה לעסק ולבית. חייגו: 053-3570350"
+          content="צור קשר עם Take Safe לקבלת ייעוץ מקצועי בחינם. התקנת כספות, פריצת כספות 24/7, מכירת כספות ופתרונות אבטחה לעסק ולבית. חייגו: 050-9914009"
         />
         <meta name="keywords" content="צור קשר כספות, ייעוץ כספות חינם, התקנת כספות, פריצת כספות, Take Safe, טופס יצירת קשר, כספות תל אביב, כספות גבעתיים, שירות כספות 24/7" />
         <meta property="og:title" content="צור קשר - Take Safe | ייעוץ חינם לאבטחת כספות" />
@@ -251,11 +251,11 @@ const ContactForm = () => {
           <p>או דברו איתנו ישירות:</p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-blue-900 font-semibold">
             <a
-              href="tel:0533570350"
+              href="tel:0509914009"
               className="hover:underline flex items-center gap-2"
               title="התקשרו אלינו"
             >
-              📞 053-3570350
+              📞 0509914009
             </a>
             <a
               href="mailto:Takesafe67@gmail.com"
