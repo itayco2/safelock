@@ -61,9 +61,19 @@ const Header = () => {
 
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Mobile Menu Button - Right Side on Mobile */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 text-slate-700 hover:text-blue-900 transition-colors order-1 md:order-none"
+            aria-label="תפריט ניווט"
+            type="button"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+
+          {/* Logo - Center */}
           <div
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none"
             onClick={navigateToHome}
             role="link"
             tabIndex={0}
@@ -77,7 +87,7 @@ const Header = () => {
             <img
               src="/assets/images/logo.jpg"
               alt="לוגו Take Safe"
-              className="w-12 h-12 md:w-20 md:h-20 ml-2 md:ml-4"
+              className="w-12 h-12 md:w-20 md:h-20"
               loading="eager"
             />
           </div>
@@ -103,28 +113,16 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Phone & Mobile Menu Button */}
-          <div className="flex items-center gap-4">
-            <a
-              href="tel:0509914009"
-              className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-sm md:text-base"
-              aria-label="התקשרו אלינו"
-            >
-              <Phone className="w-4 h-4 md:w-5 md:h-5 ml-2" aria-hidden="true" />
-              <span className="hidden sm:inline">050-9914009</span>
-              <span className="sm:hidden">חייגו</span>
-            </a>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-700 hover:text-blue-900 transition-colors"
-              aria-label="תפריט ניווט"
-              type="button"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          {/* Phone Number - Left Side */}
+          <a
+            href="tel:0509914009"
+            className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-sm md:text-base order-3 md:order-none"
+            aria-label="התקשרו אלינו"
+          >
+            <Phone className="w-4 h-4 md:w-5 md:h-5 ml-2" aria-hidden="true" />
+            <span className="hidden sm:inline">050-9914009</span>
+            <span className="sm:hidden">חייגו</span>
+          </a>
         </div>
 
         {/* Mobile Menu */}
