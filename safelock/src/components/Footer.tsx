@@ -92,7 +92,7 @@ const Footer = () => {
                   aria-label="התקשרו ל-0509250905"
                   className="hover:text-white transition-colors font-medium"
                 >
-                  050-9914009
+                  050-9250905
                 </a>
               </div>
               <div className="flex items-center gap-3">
