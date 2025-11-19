@@ -251,11 +251,11 @@ const ContactForm = () => {
           <p>או דברו איתנו ישירות:</p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-blue-900 font-semibold">
             <a
-              href="tel:0509914009"
+              href="tel:0509250905"
               className="hover:underline flex items-center gap-2"
               title="התקשרו אלינו"
             >
-              📞 0509914009
+              📞 0509250905
             </a>
             <a
               href="mailto:Takesafe67@gmail.com"
