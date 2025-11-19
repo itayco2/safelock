@@ -88,8 +88,8 @@ const Footer = () => {
                   📞
                 </span>
                 <a
-                  href="tel:0509914009"
-                  aria-label="התקשרו ל-0509914009"
+                  href="tel:0509250905"
+                  aria-label="התקשרו ל-0509250905"
                   className="hover:text-white transition-colors font-medium"
                 >
                   050-9914009
