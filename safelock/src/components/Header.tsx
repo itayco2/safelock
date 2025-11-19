@@ -115,12 +115,12 @@ const Header = () => {
 
           {/* Phone Number - Left Side */}
           <a
-            href="tel:0509914009"
+            href="tel:0509250905"
             className="flex items-center text-blue-900 font-semibold hover:text-blue-800 transition-colors text-sm md:text-base order-3 md:order-none"
             aria-label="התקשרו אלינו"
           >
             <Phone className="w-4 h-4 md:w-5 md:h-5 ml-2" aria-hidden="true" />
-            <span className="hidden sm:inline">050-9914009</span>
+            <span className="hidden sm:inline">050-9250905</span>
             <span className="sm:hidden">חייגו</span>
           </a>
         </div>
