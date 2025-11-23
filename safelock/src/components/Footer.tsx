@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 const Footer = () => {
+  const { openSettings } = useCookieConsent();
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -194,6 +196,13 @@ const Footer = () => {
                 >
                   מדיניות פרטיות
                 </Link>
+                <button
+                  onClick={openSettings}
+                  className="text-slate-500 hover:text-white transition-colors text-sm md:text-base cursor-pointer"
+                  aria-label="הגדרות עוגיות"
+                >
+                  הגדרות עוגיות
+                </button>
               </div>
             </nav>
           </div>
