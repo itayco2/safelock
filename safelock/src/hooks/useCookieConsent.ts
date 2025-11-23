@@ -82,11 +82,12 @@ export const useCookieConsent = () => {
   const updatePreference = (category: CookieCategory, value: boolean) => {
     if (category === "necessary") return; // Cannot disable necessary cookies
     
+    // Update preferences without saving (for dialog use)
     const newPreferences = {
       ...preferences,
       [category]: value,
     };
-    savePreferences(newPreferences);
+    setPreferences(newPreferences);
   };
 
   const openSettings = () => {

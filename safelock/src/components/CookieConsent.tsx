@@ -58,61 +58,71 @@ const CookieConsent = () => {
       {/* Banner */}
       {showBanner && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-gray-200 shadow-2xl p-6 md:p-8"
+          className="fixed bottom-0 left-0 right-0 z-[100] bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-t-4 border-blue-500 shadow-[0_-8px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm"
           dir="rtl"
           role="dialog"
           aria-labelledby="cookie-consent-title"
           aria-describedby="cookie-consent-description"
+          aria-modal="true"
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            animation: "slideUp 0.4s ease-out",
+          }}
         >
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-              <div className="flex-1">
-                <h3
-                  id="cookie-consent-title"
-                  className="text-xl font-bold text-gray-900 mb-2"
-                >
-                  🍪 שימוש בעוגיות
-                </h3>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+            <div className="flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
+              <div className="flex-1 space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="text-3xl">🍪</div>
+                  <h3
+                    id="cookie-consent-title"
+                    className="text-2xl md:text-3xl font-bold text-gray-900"
+                  >
+                    שימוש בעוגיות
+                  </h3>
+                </div>
                 <p
                   id="cookie-consent-description"
-                  className="text-gray-700 text-sm md:text-base leading-relaxed mb-2"
+                  className="text-gray-700 text-base md:text-lg leading-relaxed"
                 >
                   אנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה שלך, לנתח את השימוש באתר
                   ולספק תוכן מותאם אישית. על פי התקנות הישראליות, אנו זקוקים להסכמתך
                   לפני שימוש בעוגיות שאינן הכרחיות.
                 </p>
-                <p className="text-gray-600 text-xs md:text-sm">
+                <p className="text-gray-600 text-sm md:text-base">
                   למידע נוסף, עיין ב-{" "}
                   <Link
                     to="/privacy"
-                    className="text-blue-600 hover:underline font-medium"
-                    onClick={() => setShowBanner(false)}
+                    className="text-blue-700 hover:text-blue-900 underline font-semibold transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                   >
                     מדיניות הפרטיות
                   </Link>{" "}
                   שלנו.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 md:flex-shrink-0">
+              <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0 lg:mr-6">
                 <Button
                   variant="outline"
                   onClick={() => setShowSettingsDialog(true)}
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 font-semibold px-6 py-2.5"
                 >
-                  הגדרות
+                  ⚙️ הגדרות
                 </Button>
                 <Button
                   variant="outline"
                   onClick={rejectAll}
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 font-semibold px-6 py-2.5"
                 >
-                  דחה הכל
+                  ✕ דחה הכל
                 </Button>
                 <Button
                   onClick={acceptAll}
-                  className="whitespace-nowrap bg-blue-600 hover:bg-blue-700"
+                  className="whitespace-nowrap bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-8 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
                 >
-                  קבל הכל
+                  ✓ קבל הכל
                 </Button>
               </div>
             </div>
@@ -123,81 +133,104 @@ const CookieConsent = () => {
       {/* Settings Dialog */}
       <Dialog open={showSettingsDialog} onOpenChange={setShowSettingsDialog}>
         <DialogContent
-          className="max-w-2xl max-h-[90vh] overflow-y-auto"
+          className="max-w-3xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white to-blue-50"
           dir="rtl"
         >
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-gray-900">
-              הגדרות עוגיות
-            </DialogTitle>
-            <DialogDescription className="text-gray-700 text-base">
+          <DialogHeader className="space-y-3 pb-4 border-b border-gray-200">
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">⚙️</div>
+              <DialogTitle className="text-3xl font-bold text-gray-900">
+                הגדרות עוגיות
+              </DialogTitle>
+            </div>
+            <DialogDescription className="text-gray-700 text-lg leading-relaxed">
               בחר את סוגי העוגיות שאתה מאפשר. אתה יכול לשנות את ההעדפות שלך בכל עת.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-6 mt-6">
+          <div className="space-y-4 mt-6">
             {cookieCategories.map((category) => (
               <div
                 key={category.key}
-                className="flex flex-col md:flex-row md:items-start gap-4 p-4 border border-gray-200 rounded-lg"
+                className={`flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-xl border-2 transition-all duration-200 ${
+                  category.required
+                    ? "bg-blue-50 border-blue-200"
+                    : preferences[category.key]
+                    ? "bg-green-50 border-green-300"
+                    : "bg-gray-50 border-gray-200"
+                }`}
               >
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h4 className="text-lg font-semibold text-gray-900">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-3 mb-3 flex-wrap">
+                    <h4 className="text-xl font-bold text-gray-900">
                       {category.title}
                     </h4>
                     {category.required && (
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                      <span className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded-full font-semibold whitespace-nowrap">
                         הכרחי
                       </span>
                     )}
+                    {!category.required && preferences[category.key] && (
+                      <span className="text-xs bg-green-600 text-white px-3 py-1.5 rounded-full font-semibold whitespace-nowrap">
+                        מופעל
+                      </span>
+                    )}
+                    {!category.required && !preferences[category.key] && (
+                      <span className="text-xs bg-gray-400 text-white px-3 py-1.5 rounded-full font-semibold whitespace-nowrap">
+                        כבוי
+                      </span>
+                    )}
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-base text-gray-700 leading-relaxed">
                     {category.description}
                   </p>
                 </div>
-                <div className="flex items-center gap-3 md:flex-shrink-0">
-                  <Switch
-                    checked={preferences[category.key]}
-                    onCheckedChange={(checked) =>
-                      updatePreference(category.key, checked)
-                    }
-                    disabled={category.required}
-                    aria-label={`${category.title} - ${category.required ? "הכרחי" : preferences[category.key] ? "מופעל" : "כבוי"}`}
-                  />
-                  <span className="text-sm font-medium text-gray-700 min-w-[60px]">
-                    {category.required
-                      ? "הכרחי"
-                      : preferences[category.key]
-                      ? "מופעל"
-                      : "כבוי"}
-                  </span>
+                <div className="flex items-center justify-center md:justify-start md:flex-shrink-0 md:w-[100px] md:pr-4">
+                  <div 
+                    className="scale-125"
+                    style={{
+                      direction: 'ltr' // Force LTR for switch to work correctly
+                    }}
+                  >
+                    <Switch
+                      checked={preferences[category.key]}
+                      onCheckedChange={(checked) =>
+                        updatePreference(category.key, checked)
+                      }
+                      disabled={category.required}
+                      aria-label={`${category.title} - ${category.required ? "הכרחי" : preferences[category.key] ? "מופעל" : "כבוי"}`}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 pt-6 border-t border-gray-200">
-            <div className="flex flex-col sm:flex-row gap-3 justify-end">
-              <Button variant="outline" onClick={rejectAll}>
-                דחה הכל
+          <div className="mt-8 pt-6 border-t-2 border-gray-300 bg-white rounded-lg p-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-end mb-4">
+              <Button 
+                variant="outline" 
+                onClick={rejectAll}
+                className="border-2 border-gray-300 hover:border-gray-400 font-semibold px-6 py-2.5"
+              >
+                ✕ דחה הכל
               </Button>
               <Button
                 onClick={() => savePreferences(preferences)}
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-8 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
               >
-                שמור העדפות
+                ✓ שמור העדפות
               </Button>
             </div>
-            <p className="text-xs text-gray-500 mt-4 text-center">
+            <p className="text-sm text-gray-600 text-center leading-relaxed">
               על ידי לחיצה על "שמור העדפות", אתה מסכים לשימוש בעוגיות לפי ההעדפות
               שבחרת.{" "}
               <Link
                 to="/privacy"
-                className="text-blue-600 hover:underline"
-                onClick={() => {
+                className="text-blue-700 hover:text-blue-900 underline font-semibold transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
                   setShowSettingsDialog(false);
-                  setShowBanner(false);
                 }}
               >
                 קרא עוד במדיניות הפרטיות
