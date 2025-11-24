@@ -70,7 +70,7 @@ const FloatingContactButtons = () => {
           </a>
 
           <a
-            href="https://wa.me/972533570350?text=שלום, אני מעוניין לקבל פרטים נוספים."
+            href="https://wa.me/972509250905?text=שלום, אני מעוניין לקבל פרטים נוספים."
             target="_blank"
             rel="noopener noreferrer"
             className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"

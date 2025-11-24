@@ -129,13 +129,13 @@ const Footer = () => {
                 </div>
                 <span className="font-semibold break-all">Takesafe67@gmail.com</span>
               </a>
-              <a
-                href="https://wa.me/972533570350?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="צור קשר בוואטסאפ"
-                className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1 group"
-              >
+                <a
+                  href="https://wa.me/972509250905?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="צור קשר בוואטסאפ"
+                  className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1 group"
+                >
                 <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center group-hover:bg-green-500 transition-colors">
                   <span className="text-xl">💬</span>
                 </div>

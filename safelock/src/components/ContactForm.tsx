@@ -75,7 +75,7 @@ const ContactForm = () => {
     "name": "Take Safe",
     "url": "https://www.takesafe.co.il",
     "email": "Takesafe67@gmail.com",
-    "telephone": "+972533570350",
+    "telephone": "+972509250905",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "בן-גוריון 190",
@@ -86,7 +86,7 @@ const ContactForm = () => {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+972533570350",
+      "telephone": "+972509250905",
       "contactType": "customer support",
       "areaServed": "IL",
       "availableLanguage": ["Hebrew", "English"]
@@ -177,7 +177,7 @@ const ContactForm = () => {
           </a>
 
           <a
-            href="https://wa.me/972533570350"
+            href="https://wa.me/972509250905"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
