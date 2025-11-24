@@ -91,7 +91,7 @@ const Services = () => {
     <section
       id="services"
       aria-label="השירותים שלנו"
-      className="py-20 px-4 bg-white"
+      className="py-24 px-4 bg-gradient-to-b from-white to-slate-50"
       lang="he"
     >
       <Helmet>
@@ -106,18 +106,21 @@ const Services = () => {
       </Helmet>
 
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        <header className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-semibold mb-6">
+            השירותים המקצועיים שלנו
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
             השירותים שלנו
           </h1>
-          <h2 className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             פתרון כולל לכל הצרכים הקשורים לכספות ואבטחה
           </h2>
         </header>
 
         <div
           role="list"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
         >
           {services.map((service, index) => {
             const IconComponent = service.icon;
@@ -125,7 +128,7 @@ const Services = () => {
               <article
                 key={index}
                 role="listitem"
-                className="bg-slate-50 rounded-xl p-6 text-center hover:shadow-lg focus:shadow-lg transition-shadow duration-300 outline-none focus:outline-blue-500"
+                className="group bg-white rounded-2xl p-8 text-center hover:shadow-2xl focus:shadow-2xl transition-all duration-300 outline-none focus:outline-blue-500 border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
                 tabIndex={0}
                 aria-labelledby={`service-title-${index}`}
                 aria-describedby={`service-desc-${index}`}
@@ -133,21 +136,21 @@ const Services = () => {
                 itemType="https://schema.org/Service"
               >
                 <div
-                  className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4"
+                  className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl mb-6 group-hover:from-blue-900 group-hover:to-blue-800 transition-all duration-300 shadow-lg group-hover:shadow-xl"
                   aria-hidden="true"
                 >
-                  <IconComponent className="w-8 h-8 text-blue-900" />
+                  <IconComponent className="w-10 h-10 text-blue-900 group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3
                   id={`service-title-${index}`}
-                  className="text-xl font-semibold text-slate-900 mb-3"
+                  className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors"
                   itemProp="name"
                 >
                   {service.title}
                 </h3>
                 <p
                   id={`service-desc-${index}`}
-                  className="text-slate-600 leading-relaxed"
+                  className="text-slate-600 leading-relaxed text-base"
                   itemProp="description"
                 >
                   {service.description}

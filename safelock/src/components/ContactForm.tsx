@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { Phone, Mail, MessageCircle, Building2, User, MapPin, Send, CheckCircle2 } from "lucide-react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -14,12 +15,16 @@ const ContactForm = () => {
     city: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (!formData.name || !formData.phone || !formData.city) {
       toast.error("אנא מלאו את השדות החובה");
+      setIsSubmitting(false);
       return;
     }
 
@@ -35,6 +40,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         toast.success("הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם");
+        setIsSubmitted(true);
         setFormData({
           name: "",
           business: "",
@@ -43,12 +49,15 @@ const ContactForm = () => {
           city: "",
           message: "",
         });
+        setTimeout(() => setIsSubmitted(false), 5000);
       } else {
         toast.error("שגיאה בשליחה. נסו שוב מאוחר יותר.");
       }
     } catch (error) {
       console.error(error);
       toast.error("קרתה שגיאה בשליחה.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -99,7 +108,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-gray-50">
+    <section id="contact" className="py-24 px-6 bg-gradient-to-b from-slate-50 via-white to-slate-50">
       <Helmet>
         <title>צור קשר - Take Safe | ייעוץ חינם | התקנת כספות | פריצת כספות 24/7</title>
         <meta
@@ -114,28 +123,100 @@ const ContactForm = () => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
+        {/* Header Section */}
         <header className="mb-16 text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-900 rounded-full mb-6 shadow-lg">
+            <MessageCircle className="w-10 h-10 text-white" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
             צור קשר עם Take Safe
           </h1>
-          <h2 className="text-lg text-gray-600 max-w-xl mx-auto">
+          <h2 className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium">
             השאירו פרטים בטופס וקבלו ייעוץ חינם והצעת מחיר מותאמת אישית לאבטחת הכספת שלכם
           </h2>
+          <p className="mt-4 text-gray-500 text-lg">
+            אנו עובדים עם חברות מובילות בישראל ומתמחים בפתרונות אבטחה מקצועיים
+          </p>
         </header>
 
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          {/* Quick Contact Cards */}
+          <a
+            href="tel:0509250905"
+            className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
+            aria-label="התקשרו אלינו"
+          >
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-900 transition-colors">
+                <Phone className="w-6 h-6 text-blue-900 group-hover:text-white transition-colors" />
+              </div>
+              <div className="text-right">
+                <h3 className="font-bold text-gray-900 text-lg">טלפון</h3>
+                <p className="text-gray-600 text-sm">התקשרו עכשיו</p>
+              </div>
+            </div>
+            <p className="text-blue-900 font-semibold text-xl">050-9250905</p>
+          </a>
+
+          <a
+            href="mailto:Takesafe67@gmail.com"
+            className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
+            aria-label="שלחו מייל"
+          >
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-900 transition-colors">
+                <Mail className="w-6 h-6 text-blue-900 group-hover:text-white transition-colors" />
+              </div>
+              <div className="text-right">
+                <h3 className="font-bold text-gray-900 text-lg">אימייל</h3>
+                <p className="text-gray-600 text-sm">שלחו הודעה</p>
+              </div>
+            </div>
+            <p className="text-blue-900 font-semibold text-sm break-all">Takesafe67@gmail.com</p>
+          </a>
+
+          <a
+            href="https://wa.me/972533570350"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
+            aria-label="שלחו הודעת WhatsApp"
+          >
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors">
+                <MessageCircle className="w-6 h-6 text-green-700 group-hover:text-white transition-colors" />
+              </div>
+              <div className="text-right">
+                <h3 className="font-bold text-gray-900 text-lg">WhatsApp</h3>
+                <p className="text-gray-600 text-sm">שלחו הודעה</p>
+              </div>
+            </div>
+            <p className="text-green-700 font-semibold">שלחו הודעה</p>
+          </a>
+        </div>
+
+        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-lg rounded-3xl p-10 md:p-12 space-y-8"
+          className="bg-white shadow-2xl rounded-3xl p-8 md:p-12 space-y-8 border border-gray-100"
           noValidate
           aria-label="טופס צור קשר Take Safe"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
+          {isSubmitted && (
+            <div className="bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3 text-green-800">
+              <CheckCircle2 className="w-6 h-6 flex-shrink-0" />
+              <p className="font-semibold">הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם האפשרי.</p>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
               <label
                 htmlFor="name"
-                className="block text-sm font-semibold text-gray-700 mb-2"
+                className="flex items-center gap-2 text-sm font-semibold text-gray-700"
               >
+                <User className="w-4 h-4 text-blue-900" />
                 שם פרטי *
               </label>
               <Input
@@ -146,14 +227,17 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="הכניסו את שמכם"
+                className="h-12 text-lg"
+                aria-required="true"
               />
             </div>
 
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="business"
-                className="block text-sm font-semibold text-gray-700 mb-2"
+                className="flex items-center gap-2 text-sm font-semibold text-gray-700"
               >
+                <Building2 className="w-4 h-4 text-blue-900" />
                 שם העסק
               </label>
               <Input
@@ -163,16 +247,18 @@ const ContactForm = () => {
                 value={formData.business}
                 onChange={handleChange}
                 placeholder="שם החברה (אם רלוונטי)"
+                className="h-12 text-lg"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
               <label
                 htmlFor="phone"
-                className="block text-sm font-semibold text-gray-700 mb-2"
+                className="flex items-center gap-2 text-sm font-semibold text-gray-700"
               >
+                <Phone className="w-4 h-4 text-blue-900" />
                 טלפון *
               </label>
               <Input
@@ -183,14 +269,17 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="050-1234567"
+                className="h-12 text-lg"
+                aria-required="true"
               />
             </div>
 
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="city"
-                className="block text-sm font-semibold text-gray-700 mb-2"
+                className="flex items-center gap-2 text-sm font-semibold text-gray-700"
               >
+                <MapPin className="w-4 h-4 text-blue-900" />
                 עיר *
               </label>
               <Input
@@ -201,15 +290,18 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="עיר מגורים / עסק"
+                className="h-12 text-lg"
+                aria-required="true"
               />
             </div>
           </div>
 
-          <div>
+          <div className="space-y-2">
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-700 mb-2"
+              className="flex items-center gap-2 text-sm font-semibold text-gray-700"
             >
+              <Mail className="w-4 h-4 text-blue-900" />
               אימייל
             </label>
             <Input
@@ -219,62 +311,51 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@email.com"
+              className="h-12 text-lg"
             />
           </div>
 
-          <div>
+          <div className="space-y-2">
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-gray-700 mb-2"
+              className="flex items-center gap-2 text-sm font-semibold text-gray-700"
             >
+              <MessageCircle className="w-4 h-4 text-blue-900" />
               פרטים נוספים
             </label>
             <Textarea
               id="message"
               name="message"
-              rows={5}
+              rows={6}
               value={formData.message}
               onChange={handleChange}
               placeholder="פרטו יותר על הצורך שלכם - סוג כספת, מיקום התקנה, דרישות מיוחדות"
+              className="text-lg resize-none"
             />
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-blue-900 hover:bg-blue-800 text-white text-lg font-semibold py-4 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105"
+            disabled={isSubmitting}
+            className="w-full bg-blue-900 hover:bg-blue-800 text-white text-lg font-semibold py-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            שלחו בקשה עכשיו
+            {isSubmitting ? (
+              <>
+                <span className="animate-spin mr-2">⏳</span>
+                שולח...
+              </>
+            ) : (
+              <>
+                <Send className="w-5 h-5 ml-2" />
+                שלחו בקשה עכשיו
+              </>
+            )}
           </Button>
-        </form>
 
-        <footer className="mt-12 pt-10 border-t border-gray-200 text-center text-gray-600 space-y-4">
-          <p>או דברו איתנו ישירות:</p>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-blue-900 font-semibold">
-            <a
-              href="tel:0509250905"
-              className="hover:underline flex items-center gap-2"
-              title="התקשרו אלינו"
-            >
-              📞 0509250905
-            </a>
-            <a
-              href="mailto:Takesafe67@gmail.com"
-              className="hover:underline flex items-center gap-2"
-              title="שלחו מייל"
-            >
-              ✉️ Takesafe67@gmail.com
-            </a>
-            <a
-              href="https://wa.me/972533570350"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline flex items-center gap-2"
-              title="שלחו הודעת WhatsApp"
-            >
-              💬 WhatsApp
-            </a>
-          </div>
-        </footer>
+          <p className="text-center text-sm text-gray-500 mt-4">
+            * שדות חובה. הפרטים שלכם מוגנים ולא יועברו לצדדים שלישיים.
+          </p>
+        </form>
       </div>
     </section>
   );

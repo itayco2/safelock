@@ -37,13 +37,16 @@ const Benefits = () => {
   };
 
   return (
-    <main className="py-20 px-4 bg-white">
+    <main className="py-24 px-4 bg-white">
       <article className="max-w-6xl mx-auto">
-        <header className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        <header className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-semibold mb-6">
+            היתרונות שלנו
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
             למה לבחור ב-Take Safe?
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             מומחים באבטחת כספות, פריצות ושירותי התקנה עם שירות לקוחות יוצא מן הכלל
           </p>
         </header>
@@ -57,20 +60,22 @@ const Benefits = () => {
             {benefits.slice(0, 3).map((benefit, index) => (
               <article
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100"
+                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 hover:border-blue-200"
                 aria-labelledby={`benefit-title-${index}`}
                 role="region"
               >
-                <div className="text-blue-600 mb-6 flex justify-center md:justify-start">
-                  {benefit.icon}
+                <div className="text-blue-600 mb-6 flex justify-center md:justify-start group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
+                    {benefit.icon}
+                  </div>
                 </div>
                 <h2
                   id={`benefit-title-${index}`}
-                  className="text-xl font-semibold text-slate-900 mb-4 text-center md:text-right"
+                  className="text-xl font-bold text-slate-900 mb-4 text-center md:text-right group-hover:text-blue-900 transition-colors"
                 >
                   {benefit.title}
                 </h2>
-                <p className="text-slate-600 leading-relaxed text-center md:text-right">
+                <p className="text-slate-600 leading-relaxed text-center md:text-right text-base">
                   {benefit.description}
                 </p>
               </article>
@@ -82,20 +87,22 @@ const Benefits = () => {
             {benefits.slice(3, 5).map((benefit, index) => (
               <article
                 key={index + 3}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 flex-1 md:max-w-md"
+                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 hover:border-blue-200 flex-1 md:max-w-md"
                 aria-labelledby={`benefit-title-${index + 3}`}
                 role="region"
               >
-                <div className="text-blue-600 mb-6 flex justify-center md:justify-start">
-                  {benefit.icon}
+                <div className="text-blue-600 mb-6 flex justify-center md:justify-start group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
+                    {benefit.icon}
+                  </div>
                 </div>
                 <h2
                   id={`benefit-title-${index + 3}`}
-                  className="text-xl font-semibold text-slate-900 mb-4 text-center md:text-right"
+                  className="text-xl font-bold text-slate-900 mb-4 text-center md:text-right group-hover:text-blue-900 transition-colors"
                 >
                   {benefit.title}
                 </h2>
-                <p className="text-slate-600 leading-relaxed text-center md:text-right">
+                <p className="text-slate-600 leading-relaxed text-center md:text-right text-base">
                   {benefit.description}
                 </p>
               </article>
@@ -103,13 +110,13 @@ const Benefits = () => {
           </div>
         </section>
 
-        <div className="text-center bg-white p-8 rounded-xl shadow-md">
-          <p className="text-lg text-slate-700 font-medium mb-6">
+        <div className="text-center bg-gradient-to-r from-blue-900 to-blue-800 p-10 rounded-2xl shadow-2xl">
+          <p className="text-xl text-white font-semibold mb-8">
             מעוניינים לקבל שירות מקצועי לכספות שלכם?
           </p>
           <button
             onClick={scrollToContact}
-            className="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="inline-block px-12 py-5 bg-white text-blue-900 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 text-lg"
           >
             צור קשר עכשיו
           </button>

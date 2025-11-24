@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import SafeContentBlock from "@/components/SafeContentBlock";
 import CinematicSafeIntro from "@/components/CinematicSafeIntro";
 import Articles from "@/components/Articles";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
 
 const Index = () => {
   return (
@@ -29,6 +30,7 @@ const Index = () => {
       <Articles/>
       <ContactForm />
       <Footer />
+      <FloatingContactButtons />
     </div>
   );
 };

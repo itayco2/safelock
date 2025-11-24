@@ -104,13 +104,16 @@ const Clients = () => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <section id="clients" className="py-20 px-4 bg-slate-50" aria-label="לקוחות Take Safe">
+      <section id="clients" className="py-24 px-4 bg-gradient-to-b from-slate-50 to-white" aria-label="לקוחות Take Safe">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <div className="text-center mb-20">
+            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-semibold mb-6">
+              לקוחותינו המרוצים
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
               הלקוחות שלנו
             </h1>
-            <h2 className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <h2 className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               מאות לקוחות מרוצים סומכים על Take Safe לאבטחת כספות, פריצת כספות ושמירה על הנכסים החשובים ביותר שלהם.
             </h2>
           </div>
@@ -136,11 +139,11 @@ const Clients = () => {
                   itemScope
                   itemType="https://schema.org/Organization"
                 >
-                  <div className="bg-white rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300 h-24 flex items-center justify-center">
+                  <div className="bg-white rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-300 h-32 flex items-center justify-center border border-gray-100 hover:border-blue-200 hover:-translate-y-1 group">
                     <img
                       src={client.logoSrc}
                       alt={`${client.name} - לקוח Take Safe שירות אבטחת כספות`}
-                      style={{ display: "inline-block", height: "2.5em" }}
+                      className="max-h-16 max-w-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
                       loading="lazy"
                       decoding="async"
                       itemProp="logo"
@@ -175,14 +178,14 @@ const Clients = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-lg text-slate-600 font-medium">
+          <div className="text-center mt-16 bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-10 shadow-2xl">
+            <p className="text-xl text-white font-semibold mb-2">
               "Take Safe - אבטחת כספות לעסקים, מוסדות ובתים פרטיים"
             </p>
-            <p className="text-slate-500 mt-2">מאות לקוחות מרוצים בישראל</p>
+            <p className="text-blue-100 text-lg mb-8">מאות לקוחות מרוצים בישראל</p>
             <button
               onClick={scrollToContact}
-              className="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              className="inline-block px-10 py-4 bg-white text-blue-900 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
               aria-label="צור קשר לקבלת הצעת מחיר"
             >
               צור קשר עכשיו

@@ -29,7 +29,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="bg-slate-900 text-white py-16 px-6 md:px-12"
+      className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-6 md:px-12 border-t border-slate-700"
       aria-label="כותרת תחתונה"
       lang="he"
     >
@@ -44,30 +44,59 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo & Description */}
           <div>
-            <div className="flex items-center mb-5">
-              <h2 className="text-3xl font-extrabold tracking-wide">
+            <div className="flex items-center mb-6">
+              <h2 className="text-4xl font-extrabold tracking-wide bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                 Take Safe
               </h2>
             </div>
-            <p className="text-slate-300 leading-relaxed text-lg">
+            <p className="text-slate-300 leading-relaxed text-lg mb-4">
               מומחים לכספות ופריצות עם ניסיון של שנים.
               <br />
               אנחנו כאן לשמור על הבטחון שלכם — שירות אמין, מקצועי ומהיר.
             </p>
+            <div className="flex gap-4 mt-6">
+              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
+                <span className="text-xl">⭐</span>
+              </div>
+              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
+                <span className="text-xl">🏆</span>
+              </div>
+              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
+                <span className="text-xl">🔒</span>
+              </div>
+            </div>
           </div>
 
           {/* Services */}
           <nav aria-label="השירותים שלנו">
-            <h3 className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2">
+            <h3 className="text-xl font-bold mb-6 border-b border-slate-700 pb-3">
               השירותים שלנו
             </h3>
-            <ul className="space-y-3 text-slate-400 text-base leading-relaxed">
-              <li>• מכירת כספות לעסקים</li>
-              <li>• כספות לנשק</li>
-              <li>• התקנה מקצועית</li>
-              <li>• שירותי פריצה</li>
-              <li>• תחזוקה ותיקונים</li>
-              <li>• השכרת כספות</li>
+            <ul className="space-y-3 text-slate-300 text-base leading-relaxed">
+              <li className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-blue-400">▸</span>
+                מכירת כספות לעסקים
+              </li>
+              <li className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-blue-400">▸</span>
+                כספות לנשק
+              </li>
+              <li className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-blue-400">▸</span>
+                התקנה מקצועית
+              </li>
+              <li className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-blue-400">▸</span>
+                שירותי פריצה
+              </li>
+              <li className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-blue-400">▸</span>
+                תחזוקה ותיקונים
+              </li>
+              <li className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-blue-400">▸</span>
+                השכרת כספות
+              </li>
             </ul>
           </nav>
 
@@ -75,64 +104,43 @@ const Footer = () => {
           <section aria-labelledby="contact-heading">
             <h3
               id="contact-heading"
-              className="text-xl font-semibold mb-6 border-b border-slate-700 pb-2"
+              className="text-xl font-bold mb-6 border-b border-slate-700 pb-3"
             >
               צור קשר
             </h3>
-            <div className="space-y-5 text-slate-400 text-base">
-              <div className="flex items-center gap-3">
-                <span
-                  role="img"
-                  aria-label="טלפון"
-                  title="טלפון"
-                  className="text-2xl"
-                >
-                  📞
-                </span>
-                <a
-                  href="tel:0509250905"
-                  aria-label="התקשרו ל-0509250905"
-                  className="hover:text-white transition-colors font-medium"
-                >
-                  050-9250905
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <span
-                  role="img"
-                  aria-label="אימייל"
-                  title="אימייל"
-                  className="text-2xl"
-                >
-                  ✉️
-                </span>
-                <a
-                  href="mailto:Takesafe67@gmail.com"
-                  aria-label="שלחו מייל ל-Takesafe67@gmail.com"
-                  className="hover:text-white transition-colors font-medium"
-                >
-                  Takesafe67@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <span
-                  role="img"
-                  aria-label="וואטסאפ"
-                  title="וואטסאפ"
-                  className="text-2xl"
-                >
-                  💬
-                </span>
-                <a
-                  href="https://wa.me/972533570350?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="צור קשר בוואטסאפ"
-                  className="hover:text-white transition-colors font-medium"
-                >
-                  WhatsApp
-                </a>
-              </div>
+            <div className="space-y-4 text-slate-300 text-base">
+              <a
+                href="tel:0509250905"
+                aria-label="התקשרו ל-0509250905"
+                className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1 group"
+              >
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                  <span className="text-xl">📞</span>
+                </div>
+                <span className="font-semibold">050-9250905</span>
+              </a>
+              <a
+                href="mailto:Takesafe67@gmail.com"
+                aria-label="שלחו מייל ל-Takesafe67@gmail.com"
+                className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1 group"
+              >
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                  <span className="text-xl">✉️</span>
+                </div>
+                <span className="font-semibold break-all">Takesafe67@gmail.com</span>
+              </a>
+              <a
+                href="https://wa.me/972533570350?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="צור קשר בוואטסאפ"
+                className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1 group"
+              >
+                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                  <span className="text-xl">💬</span>
+                </div>
+                <span className="font-semibold">WhatsApp</span>
+              </a>
             </div>
           </section>
 
