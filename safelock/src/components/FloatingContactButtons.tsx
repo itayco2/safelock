@@ -61,10 +61,10 @@ const FloatingContactButtons = () => {
       {isExpanded && (
         <div className="flex flex-col gap-3" style={{ animation: 'slideInFromBottom 0.3s ease-out' }}>
           <a
-            href="tel:0509250905"
+            href="tel:073-8026979"
             className="w-14 h-14 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
             aria-label="התקשרו אלינו"
-            title="התקשרו: 050-9250905"
+            title="התקשרו: 073-8026979"
           >
             <Phone className="w-6 h-6" />
           </a>

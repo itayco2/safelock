@@ -143,7 +143,7 @@ const ContactForm = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Quick Contact Cards */}
           <a
-            href="tel:0509250905"
+            href="tel:073-8026979"
             className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
             aria-label="התקשרו אלינו"
           >
@@ -156,7 +156,7 @@ const ContactForm = () => {
                 <p className="text-gray-600 text-sm">התקשרו עכשיו</p>
               </div>
             </div>
-            <p className="text-blue-900 font-semibold text-xl">050-9250905</p>
+            <p className="text-blue-900 font-semibold text-xl">073-8026979</p>
           </a>
 
           <a

@@ -110,14 +110,14 @@ const Footer = () => {
             </h3>
             <div className="space-y-4 text-slate-300 text-base">
               <a
-                href="tel:0509250905"
-                aria-label="התקשרו ל-0509250905"
+                href="tel:073-8026979"
+                aria-label="התקשרו ל-073-8026979"
                 className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1 group"
               >
                 <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
                   <span className="text-xl">📞</span>
                 </div>
-                <span className="font-semibold">050-9250905</span>
+                <span className="font-semibold">073-8026979</span>
               </a>
               <a
                 href="mailto:Takesafe67@gmail.com"

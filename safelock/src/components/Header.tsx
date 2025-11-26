@@ -110,12 +110,12 @@ const Header = () => {
 
           {/* Phone Number - Left Side */}
           <a
-            href="tel:0509250905"
+            href="tel:073-8026979"
             className="flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 text-sm md:text-base order-3 md:order-none"
-            aria-label="התקשרו אלינו: 050-9250905"
+            aria-label="התקשרו אלינו: 073-8026979"
           >
             <Phone className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />
-            <span className="hidden sm:inline">050-9250905</span>
+            <span className="hidden sm:inline">073-8026979</span>
             <span className="sm:hidden">חייגו</span>
           </a>
         </div>
@@ -135,12 +135,12 @@ const Header = () => {
               </button>
             ))}
             <a
-              href="tel:0509250905"
+              href="tel:073-8026979"
               className="block w-full text-right py-3 px-4 bg-blue-900 text-white hover:bg-blue-800 transition-colors text-base font-semibold rounded-lg mx-2 mt-2 flex items-center justify-end gap-2"
               aria-label="התקשרו אלינו"
             >
               <Phone className="w-5 h-5" />
-              050-9250905
+              073-8026979
             </a>
           </nav>
         )}
