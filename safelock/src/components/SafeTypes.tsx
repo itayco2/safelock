@@ -1,39 +1,79 @@
 import { Helmet } from "react-helmet";
-import { Shield, Lock, Briefcase } from "lucide-react";
+import { Shield, ShieldCheck, Lock, KeyRound, Layers, Truck, Vault } from "lucide-react";
 
 const SafeTypes = () => {
   const safeTypes = [
     {
-      title: "כספת למשרד GS-600",
+      title: "כספת רצפה GA800d",
       description:
-        "מתאימה למשרדים ועסקים, כוללת מנגנון נעילה אלקטרוני עם אפשרות לפתיחה בקוד, מפתח או טביעת אצבע.",
-      icon: Briefcase,
-      image: "assets/images/safeoffice.jpeg",
-      overlayText: "גובה 60 ס\"מ\nרוחב 42 ס\"מ\nעומק 38 ס\"מ",
-      seoKeywords: ["כספת למשרד", "כספת משרדית", "כספת לעסק", "כספת דיגיטלית", "כספת אלקטרונית", "כספת ביומטרית", "כספת עם טביעת אצבע", "כספת GS-600", "כספות משרדיות למכירה"],
-      searchQueries: ["כספת למשרד מחיר", "כספת משרדית גדולה", "כספת דיגיטלית למשרד", "כספת אלקטרונית לעסק"],
+        "כספת רצפה גדולה לעסקים ולאירועים — נעילה כפולה (חוגה וקוד דיגיטלי) ונפח אחסון רב לאבטחת מזומנים ופריטי ערך.",
+      icon: Truck,
+      image: "assets/images/ga800d.jpg",
+      seoKeywords: ["כספת רצפה", "כספת גדולה לעסק", "כספת לאירועים", "כספת מזומנים", "כספת נעילה כפולה", "כספת GA800d"],
+      searchQueries: ["כספת רצפה לעסק", "כספת גדולה למזומנים", "כספת לאירועים מחיר"],
     },
     {
-      title: "כספת נשק תקנית BK-250",
+      title: "כספת עומדת GS100d",
       description:
-        "כספת קומפקטית ובטוחה לנשק אישי, עם נעילה מכנית חזקה ודלת מחוזקת.",
-      icon: Shield,
-      image: "assets/images/wepondsafe.jpeg",
-      overlayText:
-        "גובה 20 ס\"מ\nרוחב 30 ס\"מ\nעומק 25 ס\"מ\nדלת 8 מ\"מ\nגוף 4 מ\"מ\n4 בריחי נעילה ל־3 כיוונים",
-      seoKeywords: ["כספת נשק", "כספת לנשק", "כספת לאקדח", "כספת לרובה", "כספת נשק תקנית", "כספת נשק קטנה", "כספת BK-250", "כספת נשק משטרתית", "כספת תקן משטרה"],
-      searchQueries: ["כספת נשק מחיר", "כספת לאקדח תקנית", "כספת נשק חובה", "כספת נשק ביתית"],
+        "כספת עומדת עם 3 מדפים פנימיים ונעילת חוגה — מסדרת מסמכים, תיקיות וחפצי ערך בנפרד, בגישה נוחה ליום־יום.",
+      icon: Layers,
+      image: "assets/images/gs100d.jpg",
+      seoKeywords: ["כספת עומדת", "כספת עם מדפים", "כספת למסמכים", "כספת משרדית", "כספת נעילת חוגה", "כספת GS100d"],
+      searchQueries: ["כספת עומדת למשרד", "כספת עם מדפים מחיר", "כספת למסמכים גדולה"],
     },
     {
-      title: "כספת תקנית לביטוח GS-450",
+      title: "כספת אבטחה GA250d",
       description:
-        "כספת עמידה וחזקה, מתאימה לעמידה בדרישות ביטוח עם גוף ודלת בעובי מיוחד ונפח פנימי גדול.",
+        "כספת אבטחה בנעילה דיגיטלית עם ידית בריחים — פתיחה מהירה בקוד אישי והגנה מוגברת מפני פריצה.",
       icon: Lock,
-      image: "assets/images/officesafe2.jpeg",
-      overlayText:
-        "גובה 45 ס\"מ\nרוחב 38 ס\"מ\nעומק 33 ס\"מ\nמשקל 55 ק\"ג\nדלת 10 מ\"מ\nגוף 6 מ\"מ",
-      seoKeywords: ["כספת ביטוחית", "כספת תקנית לביטוח", "כספת לכסף", "כספת לתכשיטים", "כספת למסמכים", "כספת חזקה", "כספת GS-450", "כספת מאושרת ביטוח"],
-      searchQueries: ["כספת ביטוח מחיר", "כספת לכסף ותכשיטים", "כספת חזקה למסמכים", "כספת מומלצת ביטוח"],
+      image: "assets/images/ga250d.jpg",
+      seoKeywords: ["כספת דיגיטלית", "כספת אבטחה", "כספת פריצה", "כספת לבית", "כספת קוד", "כספת GA250d"],
+      searchQueries: ["כספת דיגיטלית לבית", "כספת אבטחה מחיר", "כספת קוד אישי"],
+    },
+    {
+      title: "כספת דיגיטלית GS250",
+      description:
+        "כספת בנעילה דיגיטלית עם קוד אישי — פתיחה מהירה בלחיצת כפתורים, פתרון מאובטח ונוח לבית ולעסק.",
+      icon: KeyRound,
+      image: "assets/images/gs250.jpg",
+      seoKeywords: ["כספת דיגיטלית", "כספת קוד", "כספת לבית", "כספת אלקטרונית", "כספת קטנה", "כספת GS250"],
+      searchQueries: ["כספת דיגיטלית מחיר", "כספת קוד לבית", "כספת אלקטרונית קטנה"],
+    },
+    {
+      title: "כספת פריצה GS300d",
+      description:
+        "כספת מחוזקת עם מנגנון בריחים ונעילת חוגה — דרגת הגנה מוגברת מפני פריצה לאחסון מזומנים ומסמכים רגישים.",
+      icon: ShieldCheck,
+      image: "assets/images/gs300d.jpg",
+      seoKeywords: ["כספת פריצה", "כספת מחוזקת", "כספת לעסק", "כספת מזומנים", "כספת נעילת חוגה", "כספת GS300d"],
+      searchQueries: ["כספת פריצה לעסק", "כספת מחוזקת מחיר", "כספת למזומנים"],
+    },
+    {
+      title: "כספת פריצה GS450d",
+      description:
+        "כספת פריצה כבדה עם גלגל בריחים ונעילה דיגיטלית — דופן מחוזקת ואבטחה ברמה גבוהה לנכסי העסק.",
+      icon: Shield,
+      image: "assets/images/gs450d.jpg",
+      seoKeywords: ["כספת פריצה", "כספת כבדה", "כספת ביטוחית", "כספת לעסק", "כספת גלגל בריחים", "כספת GS450d"],
+      searchQueries: ["כספת פריצה כבדה", "כספת ביטוחית מחיר", "כספת גלגל בריחים"],
+    },
+    {
+      title: "כספת פריצה GS600d",
+      description:
+        "כספת פריצה גדולה בנפח אחסון רב — גלגל בריחים ונעילה מאובטחת, מתאימה לעסקים עם צורכי אבטחה מוגברים.",
+      icon: Vault,
+      image: "assets/images/gs600d.jpg",
+      seoKeywords: ["כספת פריצה גדולה", "כספת לעסק", "כספת אחסון גדול", "כספת ביטוחית", "כספת GS600d"],
+      searchQueries: ["כספת פריצה גדולה", "כספת לעסק גדולה", "כספת אחסון מזומנים"],
+    },
+    {
+      title: "כספת פריצה GA600d",
+      description:
+        "כספת פריצה גדולה עם גלגל בריחים ונעילה דיגיטלית — שילוב של נפח פנימי נדיב ועמידות מרבית בפני ניסיונות פריצה.",
+      icon: Vault,
+      image: "assets/images/ga600d.jpg",
+      seoKeywords: ["כספת פריצה גדולה", "כספת לעסק", "כספת דיגיטלית", "כספת גלגל בריחים", "כספת GA600d"],
+      searchQueries: ["כספת פריצה דיגיטלית", "כספת גדולה לעסק", "כספת עמידה בפריצה"],
     },
   ];
 
@@ -41,8 +81,8 @@ const SafeTypes = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "סוגי כספות Take Safe - כספת למשרד, כספת נשק, כספת ביטוחית",
-    "description": "מגוון כספות למכירה: כספת למשרד GS-600 דיגיטלית, כספת נשק תקנית BK-250, כספת תקנית לביטוח GS-450. כל סוגי הכספות באיכות גבוהה",
+    "name": "סוגי כספות Take Safe - כספות עסקיות, דיגיטליות וכספות פריצה",
+    "description": "מגוון כספות למכירה: כספות רצפה ועומדות, כספות דיגיטליות וכספות פריצה מאובטחות. כל סוגי הכספות באיכות גבוהה",
     "url": "https://www.takesafe.co.il#safes",
     "numberOfItems": safeTypes.length,
     "itemListElement": safeTypes.map((safe, index) => ({
@@ -100,25 +140,25 @@ const SafeTypes = () => {
       dir="rtl"
     >
       <Helmet>
-        <title>כספת למשרד | כספת נשק | כספת ביטוחית | סוגי כספות Take Safe</title>
+        <title>סוגי כספות | כספות עסקיות, דיגיטליות וכספות פריצה - Take Safe</title>
         <meta
           name="description"
-          content="כספת למשרד GS-600 דיגיטלית עם טביעת אצבע | כספת נשק תקנית BK-250 לאקדח ורובה | כספת תקנית לביטוח GS-450 לכסף ותכשיטים. משלוח והתקנה בכל הארץ!"
+          content="מגוון כספות למכירה: כספות רצפה ועומדות, כספות דיגיטליות וכספות פריצה מאובטחות לעסק ולבית. משלוח והתקנה בכל הארץ!"
         />
-        <meta 
-          name="keywords" 
-          content="כספת למשרד, כספת משרדית, כספת לעסק, כספת דיגיטלית, כספת אלקטרונית, כספת ביומטרית, כספת נשק, כספת לנשק, כספת לאקדח, כספת לרובה, כספת תקנית, כספת ביטוחית, כספת לכסף, כספת לתכשיטים, כספת למסמכים, כספת GS-600, כספת BK-250, כספת GS-450, סוגי כספות, כספות למכירה"
+        <meta
+          name="keywords"
+          content="כספת לעסק, כספת משרדית, כספת דיגיטלית, כספת אלקטרונית, כספת פריצה, כספת ביטוחית, כספת רצפה, כספת עומדת, כספת למזומנים, כספת לתכשיטים, כספת למסמכים, סוגי כספות, כספות למכירה"
         />
-        
+
         {/* Open Graph tags for social media */}
-        <meta property="og:title" content="כספת למשרד | כספת נשק | כספת ביטוחית - Take Safe" />
-        <meta property="og:description" content="כל סוגי הכספות: כספת למשרד דיגיטלית, כספת נשק תקנית, כספת ביטוחית חזקה" />
+        <meta property="og:title" content="סוגי כספות | כספות עסקיות, דיגיטליות וכספות פריצה - Take Safe" />
+        <meta property="og:description" content="כל סוגי הכספות: כספות עסקיות, דיגיטליות וכספות פריצה מאובטחות" />
         <meta property="og:type" content="product.group" />
-        
+
         {/* Additional meta tags for better SEO */}
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.takesafe.co.il/safes" />
-        
+
         {/* Structured data */}
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
@@ -127,10 +167,10 @@ const SafeTypes = () => {
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-16">
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            סוגי כספות למכירה - כספת למשרד, כספת נשק, כספת ביטוחית
+            סוגי כספות למכירה - כספות עסקיות, דיגיטליות וכספות פריצה
           </h1>
           <h2 className="text-xl text-slate-600 max-w-2xl mx-auto">
-            מגוון רחב של כספות איכותיות: כספות משרדיות דיגיטליות, כספות נשק תקניות, כספות ביטוחיות חזקות
+            מגוון רחב של כספות איכותיות לכל צורך: כספות משרדיות ועומדות, כספות דיגיטליות וכספות פריצה מאובטחות
           </h2>
         </header>
 
@@ -169,14 +209,6 @@ const SafeTypes = () => {
                     loading="lazy"
                     itemProp="image"
                   />
-                  <figcaption
-                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40"
-                    aria-hidden="true"
-                  >
-                    <p className="text-white text-lg font-medium px-4 text-center whitespace-pre-line">
-                      {safe.overlayText}
-                    </p>
-                  </figcaption>
                 </figure>
 
                 <p className="text-slate-600 leading-relaxed mb-4" itemProp="description">
@@ -210,9 +242,9 @@ const SafeTypes = () => {
         <div className="mt-16 prose max-w-none text-center">
           <h3 className="text-2xl font-bold mb-4">כל סוגי הכספות שלנו</h3>
           <p className="text-gray-700">
-            ב-Take Safe תמצאו מגוון רחב של כספות למכירה: <strong>כספת למשרד</strong> עם נעילה דיגיטלית וטביעת אצבע, 
-            <strong> כספת נשק</strong> תקנית לאקדח ורובה לפי דרישות המשטרה, 
-            <strong> כספת ביטוחית</strong> חזקה לכסף, תכשיטים ומסמכים חשובים. 
+            ב-Take Safe תמצאו מגוון רחב של כספות למכירה: <strong>כספות עסקיות ומשרדיות</strong> עם נעילה דיגיטלית,
+            <strong> כספות פריצה</strong> מחוזקות עם גלגל בריחים לאבטחה ברמה גבוהה,
+            <strong> כספות דיגיטליות</strong> לבית ולעסק לאחסון כסף, תכשיטים ומסמכים חשובים.
             כל הכספות שלנו באיכות גבוהה עם אחריות מלאה.
           </p>
         </div>
